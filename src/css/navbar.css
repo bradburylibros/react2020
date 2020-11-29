@@ -1,0 +1,38 @@
+/* -HEADER- */
+
+header .navbar-brand img {
+    width: 180px;
+    height: auto;
+  }
+  
+  header .navbar-dark .navbar-nav .nav-link {
+    font-weight: bold;
+  }
+  
+  @media (min-width: 768px) {
+    header .navbar-brand img {
+        width: 210px;
+    }
+  }
+  @media (min-width: 992px) {
+    header .navbar-brand img {
+        width: 230px;
+    }
+    header .dropdown .dropdown-menu{
+        min-width: 300px;
+    }
+  }
+  
+  header .nav-link:hover{
+    color: var(--color-4);
+    transform: translateY(-5px);
+    
+  }
+  
+  #positioncarrito{
+  flex-direction: row;
+  }
+  
+  #dropmenu{
+  z-index: 999;
+  }
