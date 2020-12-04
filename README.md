@@ -11,10 +11,17 @@
 #       import React from 'react'; import ReactDOM from 'react-dom';
 #       import 'bootstrap/dist/css/bootstrap.css'
 #       ReactDOM.render( qué, dónde)
-# en la carpeta src/pages voy creando las paginas que usan componentes src/components
+# en la carpeta src/pages voy creando las paginas padres que usan componentes src/components
 
 # intalar bootstrap desde terminal:  >npm install bootstrap
-
+# usar className= " " para darle el style esa className estará definida en el .css
+# OJO una lista necesita una KEY si o si para renderizar
+# ul: <ul> {data.map(item) => {
+#                               return (
+#                                   <li key={item.id}> 
+#                                       {item.nombre} </li>
+#                                       )
+#           }}
 
 
 
