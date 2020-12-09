@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 
 import NavBar from './componentes/NavBar'
 import Footer from './componentes/Footer'
+import Suscribirse from './componentes/Suscribirse';
 
 
 
@@ -11,6 +12,7 @@ export default function App() {
     <div>
 
       <NavBar />
+      <Suscribirse />
       <Footer />
 
      </div>
