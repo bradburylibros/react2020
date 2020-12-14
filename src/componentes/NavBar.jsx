@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "../css/style.css";
 
@@ -37,7 +39,7 @@ export default function NavBar() {
                   className="btn btn-light my-2 my-sm-0 shadow mr-2"
                   type="submit"
                 >
-                  Buscar
+                  <FontAwesomeIcon icon={faSearch} />
                 </button>
               </form>
               <li className="nav-item">
@@ -45,15 +47,34 @@ export default function NavBar() {
                   Inicio
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#librorec">
-                  Catalogo
+           
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-white dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Categoría
                 </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#libronov">
-                  Novedades
-                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">
+                    Acción
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Sci-Fi
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    Otros
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    Todos
+                  </a>
+                </div>
               </li>
               <li className="nav-item">
                 <a
@@ -218,9 +239,10 @@ export default function NavBar() {
                 </div>
               </li>
 
-              <form 
-              // onSubmit="cargar(event)"
-               id="login">
+              <form
+                // onSubmit="cargar(event)"
+                id="login"
+              >
                 <li className="nav-item dropdown dropleft">
                   <a
                     className="nav-link dropdown-toggle text-white"
