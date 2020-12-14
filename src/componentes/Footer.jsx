@@ -138,7 +138,7 @@ export default function Footer() {
           </footer>
           <section id="firma" className="p-1">
             <h6 className="text-center m-0 text-light">
-              Desarrollado por Macedonia
+              Desarrollado por (???)
             </h6>
           </section>
         </section>
