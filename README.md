@@ -1,3 +1,29 @@
+# README
+# node_modules sino está esta carpeta tenemos que hacer en la consola:  >npm install
+# npm start para comenzar a correr la aplicación, crea el servidor de desarrollo 
+# en public solo index.html y el favicon.ico
+# en scr es donde vamos a trabajar
+# index.js es el archivo mas importante, es nuestro punto inicial de la aplicación (donde se montará lo 
+# importante que va a disparar la aplicación)
+# rfc snippet para crear react functional component
+# rcc snippet para crear react class component
+# en el index.js siempre estarán:
+#       import React from 'react'; import ReactDOM from 'react-dom';
+#       import 'bootstrap/dist/css/bootstrap.css'
+#       ReactDOM.render( qué, dónde)
+# en la carpeta src/pages voy creando las paginas padres que usan componentes src/components
+
+# intalar bootstrap desde terminal:  >npm install bootstrap
+# usar className= " " para darle el style esa className estará definida en el .css
+# OJO una lista necesita una KEY si o si para renderizar
+# ul: <ul> {data.map(item) => {
+#                               return (
+#                                   <li key={item.id}> 
+#                                       {item.nombre} </li>
+#                                       )
+#           }}
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

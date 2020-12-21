@@ -1,0 +1,57 @@
+.Elem {
+    background: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 8px 8px;
+    overflow: hidden;
+    height: 200px;
+  }
+  
+  .Elem_header {
+    padding: 0.5rem 0;
+    height: 80px;
+    background: #1b1b25;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Elem_email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    background: #f4f4f7;
+  }
+  
+  .Elem_info {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    padding: 0.5rem 0;
+    /* background: #f4f4f7; */
+  }
+  
+    
+  .Elem_footer {
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #105285;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .ElemList ul > li {
+    margin-bottom: 1rem;
+    list-style-type: none;
+  }
+  
+  .ListItem {
+    background: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    display: flex;
+    padding: 1rem;
+  }
+  
