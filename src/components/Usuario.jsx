@@ -1,8 +1,8 @@
 import React from 'react'
 //import React, {useState, useEffect} from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import FormUs from './FormUs'
-import CardUs from './CardUs'
+import UsuarioForm from './UsuarioForm'
+import UsuarioCard from './UsuarioCard'
 
 
 export default function Usuario() {
@@ -26,13 +26,13 @@ export default function Usuario() {
                     Datos
                     <br/>
                 
-                    <CardUs />
+                    <UsuarioCard />
 
                 </Col>
                 <Col xs={5}>
                     Formulario
                     <br/>
-                    <FormUs />
+                    <UsuarioForm />
                 </Col>
             </Row>
             

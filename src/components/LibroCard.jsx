@@ -3,7 +3,7 @@ import {Card, Badge, Button} from 'react-bootstrap'
 //import {Card, Row, Col} from 'react-bootstrap'
 //import Col from 'react-bootstrap/Col'
 
-export default function CardLibro() {
+export default function LibroCard() {
     return (
         <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex">
             <Card  mr-0 ml-0>

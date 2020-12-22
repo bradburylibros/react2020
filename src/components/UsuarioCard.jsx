@@ -2,7 +2,7 @@ import React from 'react'
 import "../css/style.css"
 
 
-export default function CardUs() {
+export default function UsuarioCard() {
     //const { nombre, apellido, email, passw, repPassw} = this.props;
     return (
         <div className="Elem">          

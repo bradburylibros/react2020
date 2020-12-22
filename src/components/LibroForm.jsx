@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 
-export default function FormLibro() {
+export default function LibroForm() {
     const [libro, setLibro] = useState({ }) //inicializamos como objeto
     const [libros, setLibros] = useState([]) //inicializamos como array 
     

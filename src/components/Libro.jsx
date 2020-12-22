@@ -1,8 +1,8 @@
 import React from 'react'
 //import React, {useState, useEffect} from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import FormLibro from './FormLibro'
-import CardLibro from './CardLibro'
+import LibroForm from './LibroForm'
+import LibroCard from './LibroCard'
 
 
 export default function Libro() {
@@ -26,7 +26,7 @@ export default function Libro() {
 
                 Formulario
                     <br/>
-                    <FormLibro />
+                    <LibroForm />
                    
 
                 </Col>
@@ -34,7 +34,7 @@ export default function Libro() {
                 Datos
                     <br/>
                 
-                    <CardLibro />
+                    <LibroCard />
                 </Col>
             </Row>
             
