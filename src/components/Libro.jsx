@@ -23,16 +23,18 @@ export default function Libro() {
             
             <Row ClassName="justify-content-between">
                 <Col xs={6}>
-                    Datos
+
+                Formulario
                     <br/>
-                
-                    <CardLibro />
+                    <FormLibro />
+                   
 
                 </Col>
                 <Col xs={5}>
-                    Formulario
+                Datos
                     <br/>
-                    <FormLibro />
+                
+                    <CardLibro />
                 </Col>
             </Row>
             
