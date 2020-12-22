@@ -6,8 +6,16 @@ import LibroCard from './LibroCard'
 
 
 export default function Libro() {
-    //const [usuario, setUsuario] = useState("")
-    
+    //const [libro, setLibro] = useState("")
+    const libros = [{
+        titulo:"el principito",
+        precio: 2300,
+        id:1,
+    }, {
+        titulo:"el aleph",
+        precio: 2000,
+        id:2,
+    }]
     
     //ciclo de vida
     // useEffect(() => {
@@ -16,7 +24,7 @@ export default function Libro() {
             //LO VEREMOS CUANDO USEMOS REACT-ROUTER Y TIENE QUE ESTAR EN UN **USEEFECT NUEVO**
     //     }
     // }, []) //hay que pasarle la dependencia vacía para que no entre en un bucle infinito
-  
+   
   
     return (
         <Container>
@@ -34,7 +42,7 @@ export default function Libro() {
                 Datos
                     <br/>
                 
-                    <LibroCard />
+                    <LibroCard libreria={libros} />
                 </Col>
             </Row>
             
