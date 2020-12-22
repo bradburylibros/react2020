@@ -14,20 +14,18 @@ export default function LibroForm() {
     } 
 
     //  ---------- [ manejamos el envio del form ] ---------- //
-    function handleSend (event) {
+    function handleSubmit (event) {
         event.preventDefault()
-
         //guardamos
         setLibros([
             ...libros, libro
         ]) 
-
         // LOCAL STORAGE       localStorage.setItem("libros",JSON.stringify(libros))
     } 
 
     //  ---------- [ formulario de libro ] ---------- //
     return (
-        <Form onSubmit={handleSend}>                   
+        <Form onSubmit={handleSubmit}>                   
 
             {/* TITULO */}
             <Form.Group>
