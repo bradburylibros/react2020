@@ -13,14 +13,14 @@ export default function UsuarioForm() {
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
             </Form.Group>
+
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Text className="text-muted">
                 Olvidaste la contraseña?
                 </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
-            Enviar
-            </Button>
+
+            <Button variant="primary" type="submit">  Enviar </Button>
       </Form>
     )
 }

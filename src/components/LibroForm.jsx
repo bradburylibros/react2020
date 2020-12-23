@@ -45,7 +45,6 @@ export default function LibroForm() {
                 <Form.Control type="text" placeholder="ISBN" name="isbn" onChange={handleChange}  />
             </Form.Group>
 
-
             {/* DESCRIPCIÓN */}
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descripción</Form.Label>

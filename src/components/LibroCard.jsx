@@ -6,7 +6,6 @@ import {Card, Badge, Button} from 'react-bootstrap'
 export default function LibroCard({libreria}) {
     console.log(libreria)
 
-
     return (
         <>
           {libreria.map((item)=> ( 

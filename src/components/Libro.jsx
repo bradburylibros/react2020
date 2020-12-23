@@ -24,8 +24,7 @@ export default function Libro() {
             //LO VEREMOS CUANDO USEMOS REACT-ROUTER Y TIENE QUE ESTAR EN UN **USEEFECT NUEVO**
     //     }
     // }, []) //hay que pasarle la dependencia vacía para que no entre en un bucle infinito
-   
-  
+     
     return (
         <Container>
             
