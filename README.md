@@ -1,4 +1,4 @@
-# README
+ README
 # node_modules sino está esta carpeta tenemos que hacer en la consola:  >npm install
 # npm start para comenzar a correr la aplicación, crea el servidor de desarrollo 
 # en public solo index.html y el favicon.ico

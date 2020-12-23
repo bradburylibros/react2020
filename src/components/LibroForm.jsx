@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 
-export default function LibroForm() {
+export default function LibroForm({libros,setLibros}) {
     const [libro, setLibro] = useState({ }) //inicializamos como objeto
-    const [libros, setLibros] = useState([]) //inicializamos como array 
+    
     
     //  ------ [ manejamos el llenado campos del form ] ------ //
     function handleChange(event) {
@@ -16,11 +16,11 @@ export default function LibroForm() {
     //  ---------- [ manejamos el envio del form ] ---------- //
     function handleSubmit (event) {
         event.preventDefault()
-        //guardamos
+        //guardamos en libros cada libro
         setLibros([
             ...libros, libro
         ]) 
-        // LOCAL STORAGE       localStorage.setItem("libros",JSON.stringify(libros))
+    
     } 
     // test---------------------
     console.log("Array de Libros", libros)
