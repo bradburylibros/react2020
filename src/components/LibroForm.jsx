@@ -7,7 +7,7 @@ export default function LibroForm() {
     
     //  ------ [ manejamos el llenado campos del form ] ------ //
     function handleChange(event) {
-        // console.log(event.target.value)
+        console.log(event.target.value)
         setLibro({
            ...libro, [event.target.name]:event.target.value
         })        
@@ -22,6 +22,9 @@ export default function LibroForm() {
         ]) 
         // LOCAL STORAGE       localStorage.setItem("libros",JSON.stringify(libros))
     } 
+    // test---------------------
+    console.log("Array de Libros", libros)
+    console.log("state",libro)
 
     //  ---------- [ formulario de libro ] ---------- //
     return (
