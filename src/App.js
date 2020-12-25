@@ -1,5 +1,5 @@
 import React from 'react';
-import Libro from './components/Libro'
+import Libro from './componentes/Libro'
 // import Usuario from './components/Usuario'
 
 function App() {
