@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import NavBar from './componentes/NavBar'
 import Footer from './componentes/Footer'
 import Suscribirse from './componentes/Suscribirse';
-
+import Carousel from './componentes/Carousel';
 
 
 export default function App() {
@@ -12,6 +12,7 @@ export default function App() {
     <div>
 
       <NavBar />
+      <Carousel />
       <Suscribirse />
       <Footer />
 
