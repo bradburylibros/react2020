@@ -6,7 +6,7 @@ export default function LibroCard({libreria}) {
 
     return (
         <>
-            console.log ('libreria.titulo', libreria.titulo)
+        console.log ('libreria.titulo', libreria.titulo)
           {/* {libreria.map((item, index)=> (     **** si quiero poner key=index*/}
           {libreria.map((item)=> ( 
             <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex">
