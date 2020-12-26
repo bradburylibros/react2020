@@ -43,7 +43,6 @@ export default function LibroForm() {
                     <Form.Label>Título</Form.Label>
                     <Form.Control type="text" placeholder="Título" name="titulo" onChange={handleChange} autocomplete='off' />
                 </Form.Group>
-
                 {/* AUTOR */}
                 <Form.Group as={Col}>
                     <Form.Label>Autor</Form.Label>
@@ -77,8 +76,6 @@ export default function LibroForm() {
                 <Form.Label>Descripción</Form.Label>
                 <Form.Control as="textarea" rows={1} name="descripcion" onChange={handleChange}  />
             </Form.Group>
-
-            
 
             <Form.Row>
                 {/* PRECIO */}

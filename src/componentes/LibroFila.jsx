@@ -12,13 +12,16 @@ export default function LibroFila({libro}) {
 
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{libro.titulo}</h5>
-                            <h6 className="card-title">{libro.autor}</h6>
-                            <p className="card-text">{libro.descripcion}</p>
-                            <span class="badge rounded-pill bg-primary">{libro.categoria}</span>
-                            <span class="badge rounded-pill bg-success">{libro.clasificacion}</span>
-                            <p className="card-text">Stock: <span className="badge bg-info text-dark">{libro.stock}</span> </p>
-                            <h5 className="card-title">$ {libro.precio}</h5>
+                            <p className="card-text">
+                                Titulo: {libro.titulo} <br/>
+                                Autor: {libro.autor} <br/>
+                                ISBN: {libro.titulo} <br/>
+                                Descripcion: {libro.descripcion} <br/>
+                                Precio: {libro.precio} <br/>
+                                Stock: {libro.stock} <br/>
+                                Clasificación: {libro.clasificacion} <br/>
+                                Categoría: {libro.categoria} <br/>
+                            </p>
                         </div>
                     </div>
                 </div>

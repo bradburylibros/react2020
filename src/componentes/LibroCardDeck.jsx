@@ -1,20 +1,19 @@
 import React from "react";
-import LibroCards from './LibroCards'
+import LibroCard from './LibroCard'
 import {Container, Row, Col} from 'react-bootstrap'
 
-export default function LibroDeck({libreria}) {
+export default function LibroCardDeck({libreria}) {
   return (
     <Container>
         <Row>
-            <Col>
-              {/* <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex"> 
-              <Card bg="light" key={libro.isbn} mr-0 ml-0>*/}
+            <Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex>
+             
                 {libreria.map((item)=> ( 
                   <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex">
-                 <LibroCards />
+                 <LibroCard />
              </div>
              ))} 
-              {/* </div> */}
+            
             </Col>
         </Row>
       

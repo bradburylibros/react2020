@@ -4,7 +4,7 @@ import imgLibro from './img/tapa1.jpg'
 
 
 export default function LibroCard() {
-    const [libro, setLibro] = useState({ }) //inicializamos el state como objeto 
+    const [libro, setLibro] = useState({ }) 
     
     return (
         <Card bg="light" mr-0 ml-0>

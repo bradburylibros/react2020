@@ -20,8 +20,8 @@ export default function LibroApp() {
                 tapa: "1bOjN3O5RpVcfRXX6Bu4R0E8-GBhbYYcp",
                 precio: 2500,
                 stock: 3,
-                clasificacion: "ficcion",
-                categoria:"mas vendidos",
+                clasificacion: "Ficción",
+                categoria:"Más vendidos",
               },
             {
                 id:2,
@@ -32,8 +32,8 @@ export default function LibroApp() {
                 tapa: "1hYe9I34jMalSZoxKN0UcgL_8IoVfYQhG",
                 precio: 1300,
                 stock: 3,
-                clasificacion: "ficcion",
-                categoria:"novedades",
+                clasificacion: "Ficción",
+                categoria:"Novedades",
               },
               {
                 id:3,
@@ -44,8 +44,8 @@ export default function LibroApp() {
                 tapa: "1OIOReV83jTF8wGS_cxOcZprW9yKHLImh",
                 precio: 3795,
                 stock: 2,
-                clasificacion: "ficcion",
-                categoria:"novedades",
+                clasificacion: "Ficción",
+                categoria:"Novedades",
               },
               {
                 id:4,
@@ -56,8 +56,8 @@ export default function LibroApp() {
                 tapa: "1U5SYQZvbgMPslT43xomTPYd8peeQp99E",
                 precio: 1299,
                 stock: 1,
-                clasificacion: "no-ficcion",
-                categoria:"recomendados"
+                clasificacion: "No-ficción",
+                categoria:"Recomendados"
               },
               {
                 id:5,
@@ -67,8 +67,8 @@ export default function LibroApp() {
                 tapa: "1WRJ8mWRZpAvuaq_edDURf52yB3_jb8iI",
                 precio: 949,
                 stock: 0,
-                clasificacion: "infantil",
-                categoria:"recomendados"
+                clasificacion: "Infantil",
+                categoria:"Recomendados"
               },
         ])
         
