@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import LibroCardDeck from './LibroCardDeck'
+import LibroCards from './LibroCards'
 
 export default function Libro() {
     //const [libro, setLibro] = useState({})
@@ -9,7 +9,7 @@ export default function Libro() {
         <Container>
             <Row ClassName="justify-content-between">
                 <Col>
-                    <LibroCardDeck/>  
+                    <LibroCards/>  
                     {/*  <LibroForm libros={libros} setLibros={setLibros}/>  */}
                 </Col>
             </Row>

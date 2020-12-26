@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Card, Badge, Button} from 'react-bootstrap'
-import imgLibro from './img/tapa1.jpg'
+import imgLibro from '../images/libro1.jpg'
 
 
 export default function LibroCard() {
