@@ -1,5 +1,5 @@
 import React from "react";
-import LibroCard from './LibroCards'
+import LibroCards from './LibroCards'
 import {Container, Row, Col} from 'react-bootstrap'
 
 export default function LibroDeck({libreria}) {
@@ -7,12 +7,14 @@ export default function LibroDeck({libreria}) {
     <Container>
         <Row>
             <Col>
-             
+              {/* <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex"> 
+              <Card bg="light" key={libro.isbn} mr-0 ml-0>*/}
                 {libreria.map((item)=> ( 
                   <div className="Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex">
-                 <LibroCard />
+                 <LibroCards />
              </div>
              ))} 
+              {/* </div> */}
             </Col>
         </Row>
       
