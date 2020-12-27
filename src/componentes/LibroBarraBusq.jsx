@@ -1,13 +1,17 @@
 import React from 'react'
 
-export default function LibroBarraBusq(props) {
+export default function LibroBarraBusq({buscarTxt, handleChange}) {
 
     return (
-        <div className='form.group'>
-            <input type="text"
-            className='texto'
+        <div className='form-group'>
+            <input 
+            type='text'
+            className='form-control'
+            name='texto'
+            value={buscarTxt.texto}
+            onChange={handleChange}
             autoComplete='off'
-            placeholder='ingrese texto a buscar'
+            placeholder='ingresa texto (titulo, autor, etc)'
             />
             
         </div>
