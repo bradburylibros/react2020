@@ -1,10 +1,10 @@
 import React from 'react'
-import Navibar from '../componentes/Navibar'
+import NavBar from '../componentes/NavBar'
 
 export default function UsuarioNuevo() {
     return (
         <>
-            <Navibar />
+            <NavBar />
 
         </>
     )

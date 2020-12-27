@@ -11,10 +11,10 @@ export default function Carousel() {
       <section id="carousel">
         <div
           id="main-carousel"
-          class="carousel slide carousel-fade"
+          className="carousel slide carousel-fade"
           data-ride="carousel"
         >
-          <ol class="carousel-indicators">
+          <ol className="carousel-indicators">
             <li
               data-target="#main-carousel"
               data-slide-to="0"
@@ -24,53 +24,53 @@ export default function Carousel() {
             <li data-target="#main-carousel" data-slide-to="2"></li>
             <li data-target="#main-carousel" data-slide-to="3"></li>
           </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
               <img
                 src={slider3}
                 class="d-block img-fluid"
                 alt="Las Tinieblas y el Alba"
               />
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src={slider4}
                 class="d-block img-fluid"
                 alt="Nutrición"
               />
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src={slider2}
-                class="d-block img-fluid"
+                className="d-block img-fluid"
                 alt="La Tierra de las Historas"
               />
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src={slider1}
-                class="d-block img-fluid"
+                className="d-block img-fluid"
                 alt="La Tía Cósima"
               />
             </div>
           </div>
           <a
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             href="#main-carousel"
             role="button"
             data-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
           </a>
           <a
-            class="carousel-control-next"
+            className="carousel-control-next"
             href="#main-carousel"
             role="button"
             data-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
           </a>
         </div>
       </section>

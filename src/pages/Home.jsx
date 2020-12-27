@@ -1,29 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import {Container, Row, Col} from 'react-bootstrap'
+import CarouselHome from "../componentes/CarouselHome";
 
-
-import Logo from "../images/logo.png";
-
+import Footer from '../componentes/Footer'
+import NavBar from '../componentes/NavBar'
 import "../css/style.css";
 
 export default function Home() {
   return (
     <div className="Home">
-      <div className="container">
-        <div className="row">
-          <div className="col-6 mt-5">
-            <img src={Logo} alt="logo BradburyLibros" />
-            <div className="text-center mt-3">
-               <Link to="/home" className="btn btn-info btn-lg">
-                Acceder
-              </Link> 
-            </div>
-          </div>
-          <div className="col-6 mt-5 contenedor">
-            <img className="logo_rolling" src={Logo} alt="logo rolling" />
-          </div>
-        </div>
-      </div>
+      <Container>
+        <Row>
+          <Col>
+            <NavBar />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <CarouselHome />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {/* AQUI VAN LAS CARDS */}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Footer />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

@@ -1,13 +1,16 @@
 import React from 'react';
- import LibroApp from './componentes/LibroApp'
+import Home from './pages/Home'
+// import UsuarioNuevo from './pages/UsuarioNuevo'
+// import LibroApp from './componentes/LibroApp'
 //import Libro from './componentes/Libro'
 // import Usuario from './componentes/Usuario'
 
 function App() {
   return (
     <>
-         
-      <LibroApp />
+      <Home />
+      {/* <UsuarioNuevo /> */}
+      {/* <LibroApp /> */}
     </>
   );
 }
