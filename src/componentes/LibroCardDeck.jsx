@@ -5,9 +5,9 @@ import {Container, Row, Col, CardDeck} from 'react-bootstrap'
 export default function LibroCardDeck({libros}) {
   return (
     <Container>
-      <CardDeck> 
-        <Row>
-           <Col xs={12} sm={6} md={4} lg={3} mb-5 mt-4 d-flex> 
+      {/* <CardDeck> 
+        <Row>*/}
+           <Col xs={12} sm={6} md={4} lg={6} mb-5 mt-4 d-flex> 
               {libros.map (item=>{
                     return (
                         <li key={item.id}>
@@ -15,9 +15,9 @@ export default function LibroCardDeck({libros}) {
                         </li>
                     )
                 })}
-            </Col>
-        </Row>
-      </CardDeck>
+             </Col>
+        {/*</Row>
+      </CardDeck> */}
     </Container>
   );
 }
