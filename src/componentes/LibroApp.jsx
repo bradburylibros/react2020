@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 import LibroLista from './LibroLista'
 import LibroForm from './LibroForm'
-import Navibar from './Navibar'
+
 //import LibroFila from './LibroFila'
 
 export default function LibroApp() {
@@ -78,7 +78,7 @@ export default function LibroApp() {
 
     return (
         <div>
-         < Navibar />
+         
         <Container>
             <Row ClassName="justify-content-between">
                 <Col xs={6}>
