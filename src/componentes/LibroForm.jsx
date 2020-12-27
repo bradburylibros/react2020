@@ -11,7 +11,7 @@ export default function LibroForm() {
 
     useEffect(() => {
         console.log('se actualizó libro (form)')
-     }, [libro])
+    }, [libro])
 
     //  ------ [ manejamos el llenado campos del form ] ------ //
     function handleChange(event) {
@@ -28,11 +28,11 @@ export default function LibroForm() {
         setLibros([
             ...libros, libro
         ]) 
-    } 
+	} 
+	
     // test---------------------
     console.log("Array de Libros ---->", libros)
     console.log("State ---->",libro)
-
 
     //  ---------- [ formulario de libro ] ---------- //
     return (

@@ -7,7 +7,7 @@ export default function LibroFila({libro}) {
             <div className="card mb-3">
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                    <LibroTapa imgPortada={libro.tapa}/> 
+                    	<LibroTapa imgPortada={libro.tapa}/>
                     </div>
 
                     <div className="col-md-8">
