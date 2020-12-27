@@ -10,11 +10,11 @@ import "../css/style.css"
 
 export default function CarouselHome() {
     return (
-        <Carousel>
+        <Carousel id="carousel">
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src={slider2}
+                src={slider3}
                 alt="La Tierra de las Historas"
                 />
             </Carousel.Item>
@@ -22,14 +22,14 @@ export default function CarouselHome() {
             <Carousel.Item >
                 <img
                 src={slider4}
-                className="d-block w-100"
+                className="d-block w-100 img-fluid"
                 alt="Nutrición"
                 />
             </Carousel.Item>
             
             <Carousel.Item>
                 <img
-                src={slider3}
+                src={slider2}
                 className="d-block w-100"
                 alt="Las Tinieblas y el Alba"
                 />
