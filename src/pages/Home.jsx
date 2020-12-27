@@ -18,6 +18,7 @@ export default function Home() {
   const [buscarTxt, setBuscarTxt] = useState({
     texto: ''
   })
+  
   const handleChange=({target})=>{
     setBuscarTxt ({
       texto: target.value
@@ -37,16 +38,14 @@ export default function Home() {
   // }
 
   return (
-    <div className="Home">
-      <Container>
-        {/* NAVBAR */}
+    <>
         <Row>
           <Col>
-            <NavBar />
-                {/* Barra de busqueda  I*/}
+                {/* Barra de busqueda */}
                 <LibroBarraBusq buscarTxt={buscarTxt} handleChange={handleChange} />
           </Col>
         </Row>
+
         {/* CAROUSEL */}
         <Row>
           <Col>
@@ -66,13 +65,6 @@ export default function Home() {
             <Libro/>
           </Col>
         </Row>
-        {/* FOOTER */}
-        <Row>
-          <Col>
-            <Footer />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    </>
   );
 }
