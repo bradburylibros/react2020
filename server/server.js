@@ -10,17 +10,17 @@ app.use(bodyParser.urlencoded ({extended: false}))
 app.use(bodyParser.json())
 
 app.use(require('./rutas/usuario'))
-
+app.use(require('./rutas/libro'))
 
  // ------------------ [ conexión con mongoDB ] ------------------ //
-mongoose.connect('mongodb://localhost:27017/bradburyUsuarios', {
+mongoose.connect('mongodb://localhost:27017/bradbury', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
   useCreateIndex: true
 },(err, res)=>{
     if(err) throw err
-    console.log('db bradburyUsuarios online')
+    console.log('DB bradbury online')
 
 } ); //mongoose.connect
 
