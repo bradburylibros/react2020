@@ -23,3 +23,16 @@ analiza el cuerpo de la solicitud entrante
 npm install body-parser --save
 app.use(bodyParser.urlencoded ({extended: false}))
 app.use(bodyParser.json())
+
+# mongoose
+npm install mongoose --save
+lo importo en server.js:const mongoose = require('mongoose')
+
+# mongoDB 
+
+# Robo3T
+
+# heroku
+abrir cuenta en heroku (libreriabradbury.online@gmail.com)
+instalar herokuCLI
+

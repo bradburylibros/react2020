@@ -1,37 +1,31 @@
+require('./config/config')  //importamos el archivo config.js
+
 const express = require('express')
+const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+
 const app = express()
 
 app.use(bodyParser.urlencoded ({extended: false}))
 app.use(bodyParser.json())
 
-// ------------------ [ método GET ] ------------------ //
-app.get('/usuario', function (req, res) { // req=request, res=response
-  res.json({
-      message: 'GET usuario',
-    })
-})
+app.use(require('./rutas/usuario'))
 
- // ------------------ [ método POST ] ------------------ //
- app.post('/usuario', function (req, res) { 
-      res.json({
-          message: 'POST usuario',
-    })
-})
 
- // ------------------ [ método PUT ] ------------------ //
- app.put('/usuario/:id', function (req, res) { 
-    res.json({
-        message: 'PUT usuario',
-    })
-})
- // ------------------ [ método DELETE ] ------------------ //
- app.delete('/usuario', function (req, res) { 
-    res.json({
-        message: 'DELETE usuario',
-    })
-})
+ // ------------------ [ conexión con mongoDB ] ------------------ //
+mongoose.connect('mongodb://localhost:27017/bradburyUsuarios', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+},(err, res)=>{
+    if(err) throw err
+    console.log('db bradburyUsuarios online')
+
+} ); //mongoose.connect
+
+
 // ------------------ [ app listen ] ------------------ //
-app.listen(3000, ()=>{
-    console.log ('servidor online en puerto:', 3000)
+app.listen(process.env.PORT, ()=>{
+    console.log ('servidor online en puerto:', process.env.PORT)
 })
