@@ -58,7 +58,8 @@ app.get("/categoria/:id", verificaToken, (req, res) => {
 }); //fin GET x Id
 
 // ------------------ [ método POST ] ------------------ //
-app.post("/categoria", [verificaToken, verificaAdminRole], (req, res) => {
+
+  app.post("/categoria", [verificaToken, verificaAdminRole], (req, res) => {
   let body = req.body;
 
   let categoria = new Categoria({

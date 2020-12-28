@@ -29,10 +29,27 @@ npm install mongoose --save
 lo importo en server.js:const mongoose = require('mongoose')
 
 # mongoDB 
-
+create - new connection : mongodb_bradbury
 # Robo3T
 
 # heroku
 abrir cuenta en heroku (libreriabradbury.online@gmail.com)
 instalar herokuCLI
 
+# mongoose-unique-validator
+es un complemento que agrega validacion a campos únicos, envia un error de validacion de mongoose
+npm install --save mongoose-unique-validator
+lo importo en el modelo: const uniqueValidator = require("mongoose-unique-validator")
+antes del module.exports = mongoose.model ( , )
+clasificacionSchema.plugin(uniqueValidator,{   message: '{PATH} debe ser único' })
+tambien valida los valores validos de un campo
+
+
+# bcrypt
+npm install --save bcrypt
+lo importamos en la ruta de usuario para encriptar la contraseña
+const bcryp 0 require('bcrypt')
+
+
+
+#

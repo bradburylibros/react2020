@@ -1,4 +1,6 @@
 const  mongoose = require("mongoose");
+//const uniqueValidator = require("mongoose-unique-validator") PARA CAMPOS unique: true,
+
 let Schema = mongoose.Schema;
 
 // LIBRO 
@@ -17,21 +19,21 @@ let libroSchema = new Schema({
     required: [true, "campo requerido"],
     trim: true,
   },
-  isbn: {
-    type: String,
-    required: false,
-    trim: true,
-  },
-  tapa: {
-    type: String,
-    required: [true, "campo requerido"],
-    trim: true,
-  },
-  descripcion: {
-    type: String,
-    required: [true, "campo requerido"],
-    trim: true,
-  },
+  // isbn: {
+  //   type: String,
+  //   required: false,
+  //   trim: true,
+  // },
+  // tapa: {
+  //   type: String,
+  //   required: [true, "campo requerido"],
+  //   trim: true,
+  // },
+  // descripcion: {
+  //   type: String,
+  //   required: [true, "campo requerido"],
+  //   trim: true,
+  // },
   precio: {
     type: Number,
     required: [true, "campo requerido"],
@@ -41,16 +43,21 @@ let libroSchema = new Schema({
     required: [true, "campo requerido"],
     default: 1,
   },
-  clasificacion: {
-    type: Schema.Types.ObjectId,
-    ref: "Clasificacion",
-    required: [true, "campo requerido"],
-  },
-  categoria: {
-    type: Schema.Types.ObjectId,
-    ref: "Categoria",
-    required: [true, "campo requerido"],
-  },
+  // clasificacion: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Clasificacion",
+  //   required: [true, "campo requerido"],
+  // },
+  // categoria: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Categoria",
+  //   required: [true, "campo requerido"],
+  // },
 });
+
+// PARA EL UNIQUE VALIDATOR
+// libroSchema.plugin(uniqueValidator,{
+//   message: '{PATH} debe ser único'
+// })
 
 module.exports = mongoose.model("Libro", libroSchema);

@@ -1,5 +1,8 @@
 const express = require('express')
+const bcrypt = require('bcrypt')
+
 const app = express()
+
 
 const Usuario = require ('../modelos/usuario')
 
@@ -12,17 +15,33 @@ app.get('/usuario', function (req, res) { // req=request, res=response
   
 // ------------------ [ método POST ] ------------------ //
 app.post('/usuario', function (req, res) { 
+    
     let body=req.body
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false, 
-            message: 'campo obligatorio',
-        })
-    } else {
+    
+    let usuario = new Usuario ({
+        nombre: body.nombre,
+        apellido: body.apellido,
+        email: body.email,
+        //password: body.password, // --> usamos bcryp
+        password: bcrypt.hashSync(body.password,10) ,
+        rol: body.rol,
+        estado: body.estado,
+    })
+
+    usuario.save((err, usuarioDB)=>{
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err,
+            })
+        }
         res.json({
-            usuario: body //es lo mismo  poner body o  body:body
+            ok: true,
+            usuario: usuarioDB
         })
-    }
+    }) //fin usuario.save
+
+    
 }) // fin del POST 
   
 // ------------------ [ método PUT ] ------------------ //
