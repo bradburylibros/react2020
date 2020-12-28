@@ -52,4 +52,7 @@ const bcryp 0 require('bcrypt')
 
 
 
-#
+# underscore
+
+
+package.json modifique "start": "react-scripts start", por "nodemon server/server"

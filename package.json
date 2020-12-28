@@ -28,7 +28,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon server/server",
     "serv": "json-server --watch db.json --port 3004",
     "build": "react-scripts build",
     "test": "react-scripts test",
