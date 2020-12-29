@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator") 
 const Schema = mongoose.Schema;
 
+// CLASIFICACION  ficcion, no ficcion, novela, infantil, autoayuda, novela historica etc etc
 let clasificacionSchema = new Schema({
   descripcion: {
     type: String,

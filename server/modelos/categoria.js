@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator") 
+
 const Schema = mongoose.Schema;
+
+// CATEGORIA novedades recomendados mas vendidos
 
 let categoriaSchema = new Schema({
   descripcion: {
@@ -14,8 +17,12 @@ let categoriaSchema = new Schema({
   },
 });
 
+
+
  categoriaSchema.plugin(uniqueValidator,{
    message: '{PATH} debe ser único'
 })
+
+
 
 module.exports = mongoose.model("Categoria", categoriaSchema);

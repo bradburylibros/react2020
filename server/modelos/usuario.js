@@ -8,8 +8,7 @@ let rolesValidos = {
 
 let Schema = mongoose.Schema;
 
-// USUARIO
-// Nombre Apellido Email Password Provincia Sexo QuieroInfo..(checkbox)
+// USUARIO: nombre apellido email password provincia sexo boletin rol estado alta
 
 let usuarioSchema = new Schema({
   nombre: {

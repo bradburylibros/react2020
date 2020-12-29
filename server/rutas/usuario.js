@@ -1,18 +1,55 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
+const _= require('underscore') //vamos a usar pick
 
 const app = express()
 
-
 const Usuario = require ('../modelos/usuario')
+
+// USUARIO: nombre apellido email password provincia sexo boletin rol estado alta
 
 // ------------------ [ método GET ] ------------------ //
 app.get('/usuario', function (req, res) { // req=request, res=response
-    res.json({
-        message: 'GET usuario',
-      })
+    
+    let desde=req.query.desde || 0
+    let limite=req.query.limite || 3
+
+    desde=Number(desde)
+    limite= Number(limite)
+
+    Usuario.find({estado: true})
+    .skip (desde)
+    .limit (limite) 
+    .exec((err, usuarios)=>{
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err,
+            })
+        } //if(err)
+
+        Usuario.count({estado: true},(err, contador)=>{
+
+            if(err){
+                return res.status(400).json({
+                    ok: false,
+                    err,
+                })
+            } //if(err)
+
+            res.json({
+                ok:true,
+                usuarios,
+                cantidad:contador,
+            }) //res
+        })
+    }) // del .exec
+
+
   }) // fin del GET 
   
+
+
 // ------------------ [ método POST ] ------------------ //
 app.post('/usuario', function (req, res) { 
     
@@ -34,7 +71,7 @@ app.post('/usuario', function (req, res) {
                 ok: false,
                 err,
             })
-        }
+        } //if(err)
         res.json({
             ok: true,
             usuario: usuarioDB
@@ -44,13 +81,32 @@ app.post('/usuario', function (req, res) {
     
 }) // fin del POST 
   
+
+
 // ------------------ [ método PUT ] ------------------ //
 app.put('/usuario/:id', function (req, res) { 
-    res.json({
-        message: 'PUT usuario',
-    })
+
+    let id = req.params.id
+    let body =_.pick(req.body, ['nombre', 'apellido', 'provincia', 'sexo', 'boletin', 'rol', 'estado'])
+
+
+    Usuario.findByIdAndUpdate(id, body,{new:true, runValidators: true} ,(err, usuarioDB)=>{
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err,
+            })
+        } //if(err)
+        res.json({
+            ok: true,
+            usuario: usuarioDB,
+        })
+    }) //del find&update
+
 }) // fin del PUT
   
+
+
 // ------------------ [ método DELETE ] ------------------ //
 app.delete('/usuario', function (req, res) { 
     res.json({
@@ -58,4 +114,7 @@ app.delete('/usuario', function (req, res) {
     })
 })// fin del DELETE 
 
+
+
+// ------------------ [ export APP ] ------------------ //
 module.exports = app 

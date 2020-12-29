@@ -12,7 +12,7 @@ process.env.PORT = process.env.PORT || 3005;
 // if(process.env.NODE_ENV==='dev') {
 //     urlDB='mongodb://localhost:27017/bradbury'
 //     } else{
-//         urlDB= process.env.MONGO_URI//'mongodb+srv://user:Hsieh.2017@cluster0.trfyj.mongodb.net/test'
+//         urlDB= process.env.MONGO_URI//'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury'
 // }
 
 // process.env.URLDB=urlDB
