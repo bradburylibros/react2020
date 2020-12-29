@@ -53,6 +53,10 @@ const bcryp 0 require('bcrypt')
 
 
 # underscore
-
-
-package.json modifique "start": "react-scripts start", por "nodemon server/server"
+es para controlar los campos que se puedan modificar en metodo PUT, por ej. 
+en usuario que no se pueda modif el password
+npm install --save underscore
+lo importamos con: const _=require('underscore')
+# usar runValidators
+# -- para que funcione el heroku --
+en package.json modifique "start": "react-scripts start", por "node server/server"

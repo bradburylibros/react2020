@@ -3,10 +3,8 @@ const  mongoose = require("mongoose");
 
 let Schema = mongoose.Schema;
 
-// LIBRO 
-// Titulo Autor ISBN Tapa Descripcion Precio Stock
-// Clasificacion: ficcion, no ficcion, novela, infantil, autoayuda, novela historica etc etc
-// Categoria: recomendado, novedades, mas vendidos, etc etc
+// LIBRO  titulo autor isbn tapa descripcion precio stock clasificacion categoria
+
 
 let libroSchema = new Schema({
   titulo: {
