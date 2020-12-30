@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const uniqueValidator = require("mongoose-unique-validator") 
 
 const Schema = mongoose.Schema;
 
@@ -13,16 +12,11 @@ let categoriaSchema = new Schema({
   },
 
   usuario: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId, //traemos el id del usuario logueado
     ref: "Usuario",
   },
 });
 
-
-
- categoriaSchema.plugin(uniqueValidator,{
-   message: '{PATH} debe ser único'
-})
 
 
 // --------------- [ exportamos el modelo ] --------------- //

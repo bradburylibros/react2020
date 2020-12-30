@@ -1,37 +1,37 @@
 const express = require("express");
 
-let {
-  verificaToken,
-  verificaAdminRole,
-} = require("../middlewares/autenticacion"); //importa middleware
+let { verificaToken, verificaAdminRole } = require("../middlewares/autenticacion"); 
 
 let app = express();
 
 let Clasificacion = require("../modelos/clasificacion");
 
+
 // ------------------ [ método GET ] ------------------ //
 app.get("/clasificacion", verificaToken, (req, res) => {
+
   Clasificacion.find({})
     .sort("descripcion") // orden ascendente (A-Z)
-    // ?????????????????????????????????????????????????????
-    .populate("usuario", "nombre email") // para mostrar los datos del usuario que creo la categoria
-    .exec((err, categorias) => {
+    .populate("usuario", "nombre email") // usuario que dió de alta a la categoría
+    .exec((err, clasificacion) => {
       if (err) {
         return res.status(500).json({
           ok: false,
           err,
         });
-      }
+      } //fin del if(err)
 
       res.json({
         ok: true,
-        categorias,
+        clasificacion,
       });
     });
 }); //fin GET
 
+
 /// --------------- [ método GET con ID] --------------- //
 app.get("/clasificacion/:id", verificaToken, (req, res) => {
+ 
   let id = req.params.id;
 
   Clasificacion.findById(id, (err, clasificacionDB) => {
@@ -40,7 +40,8 @@ app.get("/clasificacion/:id", verificaToken, (req, res) => {
         ok: false,
         err,
       });
-    }
+    } // fin if(err)
+
     if (!clasificacionDB) {
       return res.status(500).json({
         ok: false,
@@ -57,6 +58,7 @@ app.get("/clasificacion/:id", verificaToken, (req, res) => {
   });
 }); //fin GET x Id
 
+
 // ------------------ [ método POST ] ------------------ //
 app.post("/clasificacion", [verificaToken, verificaAdminRole], (req, res) => {
   let body = req.body;
@@ -72,16 +74,19 @@ app.post("/clasificacion", [verificaToken, verificaAdminRole], (req, res) => {
         ok: false,
         err,
       });
-    }
+    } //del if(err)
+
     if (!clasificacionDB) {
       return res.status(400).json({
         ok: false,
         err,
       });
     }
-    res.json({
+
+    res.status(201).json({
       ok: true,
       clasificacion: clasificacionDB,
+      message: 'Clasificación creada exitosamente',
     });
   });
 });
@@ -96,23 +101,23 @@ app.put("/clasificacion/:id", [verificaToken, verificaAdminRole], (req, res) => 
     descripcion: body.descripcion,
   };
 
-  Clasificacion.findByIdAndUpdate(
-    id,
-    descClasificacion,
-    { new: true, runValidators: true },
-    (err, clasificacionDB) => {
+  Clasificacion.findByIdAndUpdate(id, descClasificacion, { new: true, runValidators: true }, (err, clasificacionDB) => {
       if (err) {
         return res.status(500).json({
           ok: false,
           err,
         });
-      }
+      } //del if(err)
+
       if (!clasificacionDB) {
         return res.status(400).json({
           ok: false,
-          err,
+          err: {
+            message: 'El Id no existe'
+          },
         });
-      }
+      } //del if(!)
+
       res.json({
         ok: true,
         clasificacion: clasificacionDB,
@@ -142,7 +147,7 @@ app.delete("/clasificacion/:id", [verificaToken, verificaAdminRole], (req, res) 
     }
     res.json({
       ok: true,
-      message: "Se borró la Clasificación",
+      message: "Clasificación borrada exitosamente",
     });
   });
 }); // fin DELETE

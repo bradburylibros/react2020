@@ -14,7 +14,7 @@ const {verificaToken, verificaAdminRole} = require ('../middlewares/autenticacio
 app.get('/usuario', [verificaToken, verificaAdminRole], function (req, res) { // req=request, res=response
     
     let desde=req.query.desde || 0
-    let limite=req.query.limite || 3
+    let limite=req.query.limite || 5
 
     desde=Number(desde)
     limite= Number(limite)
@@ -74,7 +74,7 @@ app.post('/usuario', [verificaToken, verificaAdminRole], function (req, res) {
                 err,
             })
         } //if(err)
-        res.json({
+        res.status(201).json({
             ok: true,
             usuario: usuarioDB
         })

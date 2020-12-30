@@ -16,21 +16,21 @@ let libroSchema = new Schema({
     required: [true, "campo requerido"],
     trim: true,
   },
-  // isbn: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-  // tapa: {
-  //   type: String,
-  //   required: [true, "campo requerido"],
-  //   trim: true,
-  // },
-  // descripcion: {
-  //   type: String,
-  //   required: [true, "campo requerido"],
-  //   trim: true,
-  // },
+  isbn: {
+    type: String,
+    required: false,
+    trim: true,
+  },
+  tapa: {
+    type: String,
+    required: [true, "campo requerido"],
+    trim: true,
+  },
+  descripcion: {
+    type: String,
+    required: [true, "campo requerido"],
+    trim: true,
+  },
   precio: {
     type: Number,
     required: [true, "campo requerido"],
@@ -45,19 +45,23 @@ let libroSchema = new Schema({
     default: true, // true:disponible y false:discontinuado
   },
    clasificacion: {
-     type: Schema.Types.ObjectId,
-     ref: "Clasificacion",
-     required: [true, "campo requerido"],
+    type: Schema.Types.ObjectId,
+    ref: "Clasificacion",
+    required: true,
    },
    categoria: {
-     type: Schema.Types.ObjectId,
-     ref: "Categoria",
-     required: [true, "campo requerido"],
+    type: Schema.Types.ObjectId,
+    ref: "Categoria",
+    required: true,
    },
   usuario: {
     type: Schema.Types.ObjectId,
     ref: "Usuario",
   },
+  alta: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 // PARA EL UNIQUE VALIDATOR si es que ponemos isbn como campo unico

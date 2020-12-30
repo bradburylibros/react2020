@@ -4,15 +4,15 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
+const cors = require("cors");
+
 const app = express()
 
+app.use(cors())  // middleware para el CORS
 app.use(bodyParser.urlencoded ({extended: false}))
 app.use(bodyParser.json())
 
-// app.use(require('./rutas/usuario'))
-// app.use(require('./rutas/libro'))
-// app.use(require('./rutas/libro'))
-// llamoa index que es donde estan todas las rutas
+// llamo a index que es donde estan todas las rutas './rutas/usuario' './rutas/libro' './rutas/libro'
 app.use(require('./rutas/index'))
 
  // ------------------ [ conexión con mongoDB ] ------------------ //

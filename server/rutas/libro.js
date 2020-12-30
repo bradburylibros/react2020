@@ -1,11 +1,11 @@
 const express = require('express')
 const _= require('underscore')
-const { verificaToken } = require("../middlewares/autenticacion");
+
+let { verificaToken, verificaAdminRole } = require("../middlewares/autenticacion"); 
 
 const app = express()
 
 let Libro = require ('../modelos/libro')
-
 // LIBRO  titulo autor isbn tapa descripcion precio stock disponible clasificacion categoria
 
 
@@ -13,7 +13,7 @@ let Libro = require ('../modelos/libro')
 app.get('/libro', verificaToken, function (req, res) { 
     
     let desde = req.query.desde || 0
-    let limite = req.query.limite || 3
+    let limite = req.query.limite || 5
 
     desde = Number(desde)
     limite = Number(limite)
@@ -21,11 +21,12 @@ app.get('/libro', verificaToken, function (req, res) {
     Libro.find({disponible: true})
     .skip (desde)
     .limit (limite) 
-    .sort("nombre") //ordeno la lista por nombre A-Z
-    .populate("usuario", "nombre email") //trae datos según usuario
-    .populate("categoria", "descripcion") //trae datos según categoria
-    .populate("clsificacion", "descripcion") //trae datos según clasificación
+    .sort("titulo") //orden ascendente (A-Z) por titulo
+    .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
+    .populate("categoria", "descripcion") //trae categoria
+    .populate("clasificacion", "descripcion") //trae clasificación
     .exec((err, libros)=>{
+
         if(err){
             return res.status(400).json({
                 ok: false,
@@ -44,7 +45,7 @@ app.get('/libro', verificaToken, function (req, res) {
             res.json({
                 ok:true,
                 libros,
-                cantidad:contador,
+                cantidad:contador, //contador para el frontend
             }) //res
         })
     }) // del .exec
@@ -52,31 +53,147 @@ app.get('/libro', verificaToken, function (req, res) {
   }) // fin del GET 
   
 
+// ------------------ [ método GET x ID] ------------------ //
+app.get('/libro/:id', verificaToken, function (req, res) { 
+    
+    let id = req.params.id
+    
+    Libro.findById (id)
+    .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
+    .populate("categoria", "descripcion") //trae categoria
+    .populate("clasificacion", "descripcion") //trae clasificación
+    .exec((err, libroDB)=>{
+
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: 'Id incorrecto o inexistente'
+                },
+            })
+        } //if(err)
+   
+
+        res.json({
+            ok:true,
+            libro: libroDB,
+        }) //res
+
+    }) // del .exec
+
+  }) // fin del GET x ID
+
+
+
+//---------------------------------------------------------------- //
+// ------------------ [ busca libro por texto ] ------------------ //
+//---------------------------------------------------------------- //
+app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
+    let texto = req.params.texto;
+  
+    let reGex = new RegExp(texto, "i");
+    
+    // *******  BUSQUEDA TEXTO EN TITULO **** //
+    Libro.find({ titulo: reGex })
+      //.populate("categoria", "descripcion")
+      //.populate("clasificacion", "descripcion")
+      .exec((err, libro) => {
+        if (err) {
+          return res.status(500).json({
+            ok: false,
+            err,
+          });
+        }
+        res.json({
+          ok: true,
+          libro,
+        });
+      }); //buscar texto en titulo
+    
+    //BUSQUEDA EN AUTOR
+    Libro.find({ autor: reGex })
+    //.populate("categoria", "descripcion")
+    //.populate("clasificacion", "descripcion")
+    .exec((err, libro) => {
+      if (err) {
+        return res.status(500).json({
+          ok: false,
+          err,
+        });
+      }
+      res.json({
+        ok: true,
+        libro,
+      });
+    }); //buscar texto en autor
+
+    //BUSQUEDA EN DESCRIPCION
+    Libro.find({ descripcion: reGex })
+    //.populate("categoria", "descripcion")
+    //.populate("clasificacion", "descripcion")
+    .exec((err, libro) => {
+      if (err) {
+        return res.status(500).json({
+          ok: false,
+          err,
+        });
+      }
+      res.json({
+        ok: true,
+        libro,
+      });
+    }); //buscar texto en descripcion
+
+    //BUSQUEDA EN ISBN
+    Libro.find({ descripcion: reGex })
+    //.populate("categoria", "descripcion")
+    //.populate("clasificacion", "descripcion")
+    .exec((err, libro) => {
+      if (err) {
+        return res.status(500).json({
+          ok: false,
+          err,
+        });
+      }
+      res.json({
+        ok: true,
+        libro,
+      });
+    }); //buscar texto en ISBN
+
+  }); // fin get "/libro/buscar/:texto"
+
 
 // ------------------ [ método POST ] ------------------ //
-app.post('/libro', verificaToken, function (req, res) { 
+app.post('/libro', [verificaToken, verificaAdminRole], function (req, res) { 
     let body=req.body
 
     let libro = new Libro ({
     titulo: body.titulo,
     autor: body.autor,
+    isbn: body.isbn,
     descripcion: body.descripcion,
     precio: body.precio,
     stock: body.stock,
-    estado: body.estado,
+    disponible: body.disponible,
+    clasificacion: body.clasificacion, // mando el id de la clasificacion
+    categoria: body.categoria, // mando el id de la categoria
 })
 
 libro.save((err, libroDB)=>{
     if(err){
-        return res.status(400).json({
+        return res.status(500).json({
             ok: false,
             err,
         })
     }
-    res.json({
+
+
+    res.status(201).json({
         ok: true,
-        libro: libroDB
+        libro: libroDB,
     })
+
 }) //fin libro.save
 
 }) // fin del POST 
@@ -84,7 +201,7 @@ libro.save((err, libroDB)=>{
 
 
 // ------------------ [ método PUT ] ------------------ //
-app.put('/libro/:id', verificaToken, function (req, res) { 
+app.put('/libro/:id', [verificaToken, verificaAdminRole], function (req, res) { 
 
 let id = req.params.id
 let body =_.pick(req.body, ['titulo', 'autor', 'isbn', 'tapa', 'descripcion', 'precio', 'stock', 'clasificacion', 'categoria'])
@@ -95,7 +212,17 @@ Libro.findByIdAndUpdate(id, body,{new:true, runValidators: true} , (err, libroDB
             ok: false,
             err,
         })
-    }
+    } // del if(err)
+
+    if (!libroDB) {
+        return res.status(400).json({
+          ok: false,
+          err: {
+            message: "El id no existe",
+          },
+        });
+      } // del if(!)
+    
     res.json({
         ok: true,
         libro: libroDB,
@@ -107,15 +234,15 @@ Libro.findByIdAndUpdate(id, body,{new:true, runValidators: true} , (err, libroDB
 
 
 // ------------------ [ método DELETE ] ------------------ //
-app.delete('/libro/:id', verificaToken, function (req, res) { 
+app.delete('/libro/:id', [verificaToken, verificaAdminRole], function (req, res) { 
    
     let id=req.params.id
    
-    let estadoDiscontinuado={
+    let discontinuado={
        disponible: false,
     }
 
-    Libro.findByIdAndUpdate(id, estadoDiscontinuado, {new:true},(err,libroBorrado)=>{
+    Libro.findByIdAndUpdate(id, discontinuado, {new:true}, (err,libroBorrado)=>{
         if(err){
         return res.status(400).json({
             ok: false,
@@ -126,13 +253,13 @@ app.delete('/libro/:id', verificaToken, function (req, res) {
         if (!libroBorrado) {
             return res.status (400).json ({
                 ok:false,
-                message:('no se encontro el libro que desea borrar'),
+                message:('No se encontró el libro que desea borrar'),
             })
         } //if !libroBorrado
 
         res.json ({
             ok: true,
-            usuario: libroBorrado,
+            libro: libroBorrado,
         })
 
    }) //Usuario.find

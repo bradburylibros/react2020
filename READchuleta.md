@@ -83,7 +83,11 @@ MONGO_URI: mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury
 SEED:      semilla_para_produccion
 
 
-
-
 # instalar paq para el TOKEN
 $ npm install jsonwebtoken --save
+
+# instalar paq cors
+$ npm install cors --save
+lo importo en server.js : 
+    const cors = require("cors");  
+    app.use(cors()); //Middleware para el CORS
