@@ -11,9 +11,10 @@ let categoriaSchema = new Schema({
     unique: true,
     required: [true, "campo obligatorio"],
   },
-  libro: {
+
+  usuario: {
     type: Schema.Types.ObjectId,
-    ref: "Libro",
+    ref: "Usuario",
   },
 });
 
@@ -24,5 +25,6 @@ let categoriaSchema = new Schema({
 })
 
 
+// --------------- [ exportamos el modelo ] --------------- //
 
 module.exports = mongoose.model("Categoria", categoriaSchema);

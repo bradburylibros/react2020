@@ -1,25 +1,30 @@
 const express = require('express')
 const _= require('underscore')
+const { verificaToken } = require("../middlewares/autenticacion");
 
 const app = express()
 
-const Libro = require ('../modelos/libro')
+let Libro = require ('../modelos/libro')
 
-// LIBRO  titulo autor isbn tapa descripcion precio stock clasificacion categoria
+// LIBRO  titulo autor isbn tapa descripcion precio stock disponible clasificacion categoria
 
 
 // ------------------ [ método GET ] ------------------ //
-app.get('/libro', function (req, res) { 
+app.get('/libro', verificaToken, function (req, res) { 
     
-    let desde=req.query.desde || 0
-    let limite=req.query.limite || 5
+    let desde = req.query.desde || 0
+    let limite = req.query.limite || 3
 
-    desde=Number(desde)
-    limite= Number(limite)
-
-    Libro.find({})
+    desde = Number(desde)
+    limite = Number(limite)
+    
+    Libro.find({disponible: true})
     .skip (desde)
     .limit (limite) 
+    .sort("nombre") //ordeno la lista por nombre A-Z
+    .populate("usuario", "nombre email") //trae datos según usuario
+    .populate("categoria", "descripcion") //trae datos según categoria
+    .populate("clsificacion", "descripcion") //trae datos según clasificación
     .exec((err, libros)=>{
         if(err){
             return res.status(400).json({
@@ -28,7 +33,7 @@ app.get('/libro', function (req, res) {
             })
         } //if(err)
 
-        Libro.count({},(err, contador)=>{
+        Libro.count({disponible: true},(err, contador)=>{
             if(err){
                 return res.status(400).json({
                     ok: false,
@@ -49,7 +54,7 @@ app.get('/libro', function (req, res) {
 
 
 // ------------------ [ método POST ] ------------------ //
-app.post('/libro', function (req, res) { 
+app.post('/libro', verificaToken, function (req, res) { 
     let body=req.body
 
     let libro = new Libro ({
@@ -79,7 +84,7 @@ libro.save((err, libroDB)=>{
 
 
 // ------------------ [ método PUT ] ------------------ //
-app.put('/libro/:id', function (req, res) { 
+app.put('/libro/:id', verificaToken, function (req, res) { 
 
 let id = req.params.id
 let body =_.pick(req.body, ['titulo', 'autor', 'isbn', 'tapa', 'descripcion', 'precio', 'stock', 'clasificacion', 'categoria'])
@@ -102,13 +107,39 @@ Libro.findByIdAndUpdate(id, body,{new:true, runValidators: true} , (err, libroDB
 
 
 // ------------------ [ método DELETE ] ------------------ //
-app.delete('/libro', function (req, res) { 
-    res.json({
-        message: 'DELETE libro',
-    })
+app.delete('/libro/:id', verificaToken, function (req, res) { 
+   
+    let id=req.params.id
+   
+    let estadoDiscontinuado={
+       disponible: false,
+    }
+
+    Libro.findByIdAndUpdate(id, estadoDiscontinuado, {new:true},(err,libroBorrado)=>{
+        if(err){
+        return res.status(400).json({
+            ok: false,
+            err,
+            })
+        } //if(err)
+
+        if (!libroBorrado) {
+            return res.status (400).json ({
+                ok:false,
+                message:('no se encontro el libro que desea borrar'),
+            })
+        } //if !libroBorrado
+
+        res.json ({
+            ok: true,
+            usuario: libroBorrado,
+        })
+
+   }) //Usuario.find
+
 })// fin del DELETE 
 
 
 
-// ------------------ [ export APP ] ------------------ //
+// ------- [ exportamos la función ] ------- //
 module.exports = app 

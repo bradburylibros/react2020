@@ -9,9 +9,9 @@ let clasificacionSchema = new Schema({
     unique: true,
     required: [true, "campo obligatorio"],
   },
-  libro: {
+  usuario: {
     type: Schema.Types.ObjectId,
-    ref: "Libro",
+    ref: "Usuario",
   },
 });
 
@@ -20,4 +20,6 @@ clasificacionSchema.plugin(uniqueValidator,{
   message: '{PATH} debe ser único'
 })
 
+
+// --------------- [ exportamos el modelo ] --------------- //
 module.exports = mongoose.model("Clasificacion", clasificacionSchema);

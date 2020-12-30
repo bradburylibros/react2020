@@ -5,7 +5,6 @@ let Schema = mongoose.Schema;
 
 // LIBRO  titulo autor isbn tapa descripcion precio stock clasificacion categoria
 
-
 let libroSchema = new Schema({
   titulo: {
     type: String,
@@ -41,21 +40,31 @@ let libroSchema = new Schema({
     required: [true, "campo requerido"],
     default: 1,
   },
-  // clasificacion: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Clasificacion",
-  //   required: [true, "campo requerido"],
-  // },
-  // categoria: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Categoria",
-  //   required: [true, "campo requerido"],
-  // },
+  disponible: {
+    type: Boolean,
+    default: true, // true:disponible y false:discontinuado
+  },
+   clasificacion: {
+     type: Schema.Types.ObjectId,
+     ref: "Clasificacion",
+     required: [true, "campo requerido"],
+   },
+   categoria: {
+     type: Schema.Types.ObjectId,
+     ref: "Categoria",
+     required: [true, "campo requerido"],
+   },
+  usuario: {
+    type: Schema.Types.ObjectId,
+    ref: "Usuario",
+  },
 });
 
-// PARA EL UNIQUE VALIDATOR
+// PARA EL UNIQUE VALIDATOR si es que ponemos isbn como campo unico
 // libroSchema.plugin(uniqueValidator,{
 //   message: '{PATH} debe ser único'
 // })
 
+
+// --------------- [ exportamos el modelo ] --------------- //
 module.exports = mongoose.model("Libro", libroSchema);

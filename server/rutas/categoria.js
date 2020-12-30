@@ -148,4 +148,5 @@ app.delete("/categoria/:id", [verificaToken, verificaAdminRole], (req, res) => {
   });
 }); // fin DELETE
 
+// ------- [ exportamos la función ] ------- //
 module.exports = app;

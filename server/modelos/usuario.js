@@ -71,4 +71,6 @@ usuarioSchema.methods.toJSON=function () {
   return userObject
 }
 
+
+// --------------- [ exportamos el modelo ] --------------- //
 module.exports = mongoose.model("Usuario", usuarioSchema);

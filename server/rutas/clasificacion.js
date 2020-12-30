@@ -147,4 +147,6 @@ app.delete("/clasificacion/:id", [verificaToken, verificaAdminRole], (req, res) 
   });
 }); // fin DELETE
 
+
+// ------- [ exportamos la función ] ------- //
 module.exports = app;

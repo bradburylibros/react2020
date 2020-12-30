@@ -6,10 +6,12 @@ const app = express()
 
 const Usuario = require ('../modelos/usuario')
 
+const {verificaToken, verificaAdminRole} = require ('../middlewares/autenticacion')
+
 // USUARIO: nombre apellido email password provincia sexo boletin rol estado alta
 
 // ------------------ [ método GET ] ------------------ //
-app.get('/usuario', function (req, res) { // req=request, res=response
+app.get('/usuario', [verificaToken, verificaAdminRole], function (req, res) { // req=request, res=response
     
     let desde=req.query.desde || 0
     let limite=req.query.limite || 3
@@ -51,7 +53,7 @@ app.get('/usuario', function (req, res) { // req=request, res=response
 
 
 // ------------------ [ método POST ] ------------------ //
-app.post('/usuario', function (req, res) { 
+app.post('/usuario', [verificaToken, verificaAdminRole], function (req, res) { 
     
     let body=req.body
     
@@ -84,7 +86,7 @@ app.post('/usuario', function (req, res) {
 
 
 // ------------------ [ método PUT ] ------------------ //
-app.put('/usuario/:id', function (req, res) { 
+app.put('/usuario/:id', [verificaToken, verificaAdminRole], function (req, res) { 
 
     let id = req.params.id
     let body =_.pick(req.body, ['nombre', 'apellido', 'provincia', 'sexo', 'boletin', 'rol', 'estado'])
@@ -108,13 +110,39 @@ app.put('/usuario/:id', function (req, res) {
 
 
 // ------------------ [ método DELETE ] ------------------ //
-app.delete('/usuario', function (req, res) { 
-    res.json({
-        message: 'DELETE usuario',
-    })
+app.delete('/usuario/:id', [verificaToken, verificaAdminRole], function (req, res) { 
+   
+    let id=req.params.id
+   
+    let estadoInactivo={
+       estado: false,
+    }
+
+    Usuario.findByIdAndUpdate(id, estadoInactivo, {new:true},(err,usuarioBorrado)=>{
+        if(err){
+        return res.status(400).json({
+            ok: false,
+            err,
+            })
+        } //if(err)
+
+        if (!usuarioBorrado) {
+            return res.status (400).json ({
+                ok:false,
+                message:('no se encontro al usuario que desea borrar'),
+            })
+        } //if !usuarioBorrado
+
+        res.json ({
+            ok: true,
+            usuario: usuarioBorrado,
+        })
+
+   }) //Usuario.find
+
 })// fin del DELETE 
 
 
 
-// ------------------ [ export APP ] ------------------ //
+// ------- [ exportamos la función ] ------- //
 module.exports = app 

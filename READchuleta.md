@@ -60,3 +60,30 @@ lo importamos con: const _=require('underscore')
 # usar runValidators
 # -- para que funcione el heroku --
 en package.json modifique "start": "react-scripts start", por "node server/server"
+
+# variable de entorno HEROKU
+$ heroku config
+la primera vez nos muestra: === whispering-journey-97600 Config Vars
+
+$ heroku config:set MONGO_URI="mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury"
+resultado:
+    Silvia@DESKTOP-7CLQ31R MINGW64 ~/Desktop/Proyecto REACT/bradbury (silvia)
+    $ heroku config:set MONGO_URI="mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury"
+    Setting MONGO_URI and restarting whispering-journey-97600... done, v6
+    MONGO_URI: mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury
+
+$ heroku config
+=== whispering-journey-97600 Config Vars
+MONGO_URI: mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury
+
+$ heroku config:set SEED="semilla_para_produccion"
+$ heroku config
+=== whispering-journey-97600 Config Vars
+MONGO_URI: mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury
+SEED:      semilla_para_produccion
+
+
+
+
+# instalar paq para el TOKEN
+$ npm install jsonwebtoken --save
