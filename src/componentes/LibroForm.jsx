@@ -96,10 +96,15 @@ export default function LibroForm() {
                 <Form.Group as={Col} controlId="formGridClasificacion">
                     <Form.Label>Clasificación</Form.Label>
                     <Form.Control as="select" defaultValue="Elija clasificación..." name="clasificacion" onChange={handleChange} >
-                        <option>Ficción</option>
+                        <option>Autoayuda</option>
+                        <option>Ciencia Ficción</option> 
+                        <option>Infantil</option>
                         <option>No ficción</option>
-                        <option>Cómic</option>
-                        <option>Infantiles</option>
+                        <option>Novela</option> 
+                        <option>Novela Histórica</option> 
+                        <option>Novela Negra</option>
+                        <option>Policial</option> 
+                        <option>Thriller</option> 
                     </Form.Control>
                 </Form.Group>
 
@@ -107,8 +112,9 @@ export default function LibroForm() {
                 <Form.Group as={Col} controlId="formGridCategoria">
                     <Form.Label>Categoría</Form.Label>
                     <Form.Control as="select" defaultValue="Elija categoría..." name="categoria" onChange={handleChange} >
+                        <option>Clásicos</option>
+                        <option>Más Vendidos</option>
                         <option>Novedades</option>
-                        <option>Mas Vendidos</option>
                         <option>Recomendados</option>
                     </Form.Control>
                 </Form.Group>

@@ -8,7 +8,6 @@ const Usuario = require ('../modelos/usuario')
 
 const {verificaToken, verificaAdminRole} = require ('../middlewares/autenticacion')
 
-// USUARIO: nombre apellido email password provincia sexo boletin rol estado alta
 
 // ------------------ [ método GET ] ------------------ //
 app.get('/usuario', [verificaToken, verificaAdminRole], function (req, res) { // req=request, res=response
@@ -50,6 +49,36 @@ app.get('/usuario', [verificaToken, verificaAdminRole], function (req, res) { //
 
   }) // fin del GET 
   
+  
+
+// ------------------ [ método GET x ID] ------------------ //
+app.get('/usuario/:id', verificaToken, function (req, res) { 
+    
+    let id = req.params.id
+    
+    Usuario.findById (id)
+    
+    .exec((err, usuarioDB)=>{
+
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: 'Id incorrecto o inexistente'
+                },
+            })
+        } //if(err)
+   
+
+        res.json({
+            ok:true,
+            usuario: usuarioDB,
+        }) //res
+
+    }) // del .exec
+
+  }) // fin del GET x ID  
+  
 
 
 // ------------------ [ método POST ] ------------------ //
@@ -61,7 +90,6 @@ app.post('/usuario', [verificaToken, verificaAdminRole], function (req, res) {
         nombre: body.nombre,
         apellido: body.apellido,
         email: body.email,
-        //password: body.password, // --> usamos bcryp
         password: bcrypt.hashSync(body.password,10) ,
         rol: body.rol,
         estado: body.estado,
@@ -74,9 +102,10 @@ app.post('/usuario', [verificaToken, verificaAdminRole], function (req, res) {
                 err,
             })
         } //if(err)
+
         res.status(201).json({
             ok: true,
-            usuario: usuarioDB
+            usuario: usuarioDB,
         })
     }) //fin usuario.save
 

@@ -3,7 +3,7 @@ const  mongoose = require("mongoose");
 
 let Schema = mongoose.Schema;
 
-// LIBRO  titulo autor isbn tapa descripcion precio stock clasificacion categoria
+// LIBRO  titulo autor isbn tapa descripcion precio stock disponible clasificacion categoria -usuario-
 
 let libroSchema = new Schema({
   titulo: {
@@ -23,7 +23,7 @@ let libroSchema = new Schema({
   },
   tapa: {
     type: String,
-    required: [true, "campo requerido"],
+    required: false,
     trim: true,
   },
   descripcion: {
@@ -47,12 +47,12 @@ let libroSchema = new Schema({
    clasificacion: {
     type: Schema.Types.ObjectId,
     ref: "Clasificacion",
-    required: true,
+    required: false,
    },
    categoria: {
     type: Schema.Types.ObjectId,
     ref: "Categoria",
-    required: true,
+    required: false,
    },
   usuario: {
     type: Schema.Types.ObjectId,

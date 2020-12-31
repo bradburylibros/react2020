@@ -24,12 +24,12 @@ mongoose.connect(process.env.URLDB, {
   useCreateIndex: true
   },(err, res)=>{
       if(err) throw err
-      console.log('DB bradbury online --->', process.env.URLDB)
+      console.log('DB bradbury online on:', process.env.URLDB)
 
 } ); //mongoose.connect
 
 
 // ------------------ [ app listen ] ------------------ //
 app.listen(process.env.PORT, ()=>{
-    console.log ('servidor online en puerto:', process.env.PORT)
+    console.log ('server on port:', process.env.PORT)
 })

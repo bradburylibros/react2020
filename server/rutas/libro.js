@@ -1,12 +1,11 @@
 const express = require('express')
 const _= require('underscore')
 
-let { verificaToken, verificaAdminRole } = require("../middlewares/autenticacion"); 
+let { verificaToken, verificaAdminRole } = require("../middlewares/autenticacion")
 
 const app = express()
 
 let Libro = require ('../modelos/libro')
-// LIBRO  titulo autor isbn tapa descripcion precio stock disponible clasificacion categoria
 
 
 // ------------------ [ método GET ] ------------------ //
@@ -72,7 +71,6 @@ app.get('/libro/:id', verificaToken, function (req, res) {
                 },
             })
         } //if(err)
-   
 
         res.json({
             ok:true,
@@ -89,28 +87,30 @@ app.get('/libro/:id', verificaToken, function (req, res) {
 // ------------------ [ busca libro por texto ] ------------------ //
 //---------------------------------------------------------------- //
 app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
-    let texto = req.params.texto;
-  
-    let reGex = new RegExp(texto, "i");
     
-    // *******  BUSQUEDA TEXTO EN TITULO **** //
-    Libro.find({ titulo: reGex })
-      //.populate("categoria", "descripcion")
-      //.populate("clasificacion", "descripcion")
-      .exec((err, libro) => {
-        if (err) {
-          return res.status(500).json({
-            ok: false,
-            err,
-          });
-        }
-        res.json({
-          ok: true,
-          libro,
+  let texto = req.params.texto
+  let reGex = new RegExp(texto, "i")
+    
+  // *******  BUSQUEDA TEXTO EN TITULO **** //
+  Libro.find({ titulo: reGex})
+    //.populate("categoria", "descripcion")
+    //.populate("clasificacion", "descripcion")
+    .exec((err, libro) => {
+      if (err) {
+        return res.status(500).json({
+          ok: false,
+          err,
         });
-      }); //buscar texto en titulo
+      }
+      res.json({
+        ok: true,
+        libro,
+        message: "texto encontrado en titulo",
+      });
+    }); //de Libro.find(titulo)
     
-    //BUSQUEDA EN AUTOR
+    
+    // *******  BUSQUEDA TEXTO EN AUTOR **** //
     Libro.find({ autor: reGex })
     //.populate("categoria", "descripcion")
     //.populate("clasificacion", "descripcion")
@@ -124,10 +124,11 @@ app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
       res.json({
         ok: true,
         libro,
+        message: "texto encontrado en autor",
       });
-    }); //buscar texto en autor
+    }); //de Libro.find(autor)
 
-    //BUSQUEDA EN DESCRIPCION
+    // *******  BUSQUEDA TEXTO EN DESCRIPCION **** //
     Libro.find({ descripcion: reGex })
     //.populate("categoria", "descripcion")
     //.populate("clasificacion", "descripcion")
@@ -141,11 +142,12 @@ app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
       res.json({
         ok: true,
         libro,
+        message: "texto encontrado en descripcion",
       });
-    }); //buscar texto en descripcion
+    }); //de Libro.find(descripcion)
 
-    //BUSQUEDA EN ISBN
-    Libro.find({ descripcion: reGex })
+    // *******  BUSQUEDA TEXTO EN ISBN **** //
+    Libro.find({ isbn: reGex })
     //.populate("categoria", "descripcion")
     //.populate("clasificacion", "descripcion")
     .exec((err, libro) => {
@@ -158,8 +160,10 @@ app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
       res.json({
         ok: true,
         libro,
+        message: "texto encontrado en isbn"
       });
-    }); //buscar texto en ISBN
+    }); //de Libro.find(isbn)
+
 
   }); // fin get "/libro/buscar/:texto"
 
