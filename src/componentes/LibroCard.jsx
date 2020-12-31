@@ -1,39 +1,49 @@
-import React from 'react'
-import {Card, Badge, Button} from 'react-bootstrap'
-import LibroTapa from './LibroTapa'
+import React from "react";
+import { Badge, Button } from "react-bootstrap";
+import LibroTapa from "./LibroTapa";
+import "../css/style.css";
 
+export default function LibroCard({ libro }) {
+  return (
+    <section className="d-flex" id="cardslibros">
+      <div className=" mb-0">
+        <div className="card h-100  mt-5">
+          <div className="text-center zoom">
+            <LibroTapa imgPortada={libro.tapa} />
+          </div>
 
-export default function LibroCard ({libro}) {
-        
-    return (
-		<div className="col-12">
-			<Card bg="light" mr-0 ml-0>
-				{/* <div className="Card mr-0 ml-0">   */}
-					<div className="text-center zoom">
-						{/* <Card.Img src={imgLibro} className="img-fluid rounded img-thumbnail imagenalto" 
-						height="130px" width="150px" alt="tapa"/> */}
-						<LibroTapa imgPortada={libro.tapa}/>
-						<img src={libro.tapa} alt="..." height="10px" width="50px"></img> 
-						{/* <Card.Img  src={libro.tapa} className="img-fluid rounded img-thumbnail imagenalto"  height="130px" width="150px" alt="tapa" /> */}
-					</div>
+          <div
+            className="card-body flex-fill pb-0"
+            style={{ width: "250px", height: "320px" }}
+          >
+            <h5 className="container text-center">{libro.titulo}</h5>
 
-					<Card.Body flex-fill>
-						<div className="Container text-center">
-							{libro.titulo}
-						</div>
-						<div>
-							<Badge pill variant="primary">  {libro.categoria}  </Badge>{' '}
-							<Badge pill variant="info">  {libro.clasificacion} </Badge>{' '}   
-						</div>
-						<div className="text-center mb-1">
-							<p> {libro.descripcion}  </p>
-						</div>
-						<span className="h2 text-center">$ {libro.precio} </span>
-						<br/>
-						<Button variant="primary">Comprar</Button>
-					</Card.Body>
-				{/* </div> */}
-			</Card>
-		</div>
-    ) 
+            <div className="text-center">
+              <Badge pill variant="primary">
+                {" "}
+                {libro.categoria}{" "}
+              </Badge>{" "}
+              <Badge pill variant="info">
+                {" "}
+                {libro.clasificacion}{" "}
+              </Badge>{" "}
+            </div>
+
+            <div className="text-left">
+              <p> {libro.descripcion} </p>
+            </div>
+            <div className="col px-0 ml-0  text-center">
+              <span className="h2 text-center">$ {libro.precio} </span>
+              <br />
+              <div className="row">
+                <div className="col px-0 ml-0 text-center">
+                  <Button variant="primary">Comprar</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

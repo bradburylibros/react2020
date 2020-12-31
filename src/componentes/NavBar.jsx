@@ -11,9 +11,9 @@ export default function NavBar() {
     <header>
       <div id="inicio">
         <nav className="navbar navbar-expand-lg navbar-dark bg-1">
-          <a class="navbar-brand">
+          <Link to="/" class="navbar-brand">
             <img src={Logo} alt="Logo Bradbury" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -43,9 +43,9 @@ export default function NavBar() {
                 </button>
               </form>
               <li className="nav-item">
-                <a className="nav-link text-white" href="index.html">
+                <Link className="nav-link text-white" to="/">
                   Inicio
-                </a>
+                </Link>
               </li>
            
 

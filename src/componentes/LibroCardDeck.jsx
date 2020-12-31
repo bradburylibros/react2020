@@ -1,23 +1,22 @@
 import React from "react";
-import LibroCard from './LibroCard'
-import {Container, Row, Col, CardDeck} from 'react-bootstrap'
+import LibroCard from "./LibroCard";
 
-export default function LibroCardDeck({libros}) {
+
+export default function LibroCardDeck({ libros }) {
   return (
-    <Container>
-      {/* <CardDeck> 
-        <Row>*/}
-           <Col xs={12} sm={6} md={4} lg={6} mb-5 mt-4 d-flex> 
-              {libros.map (item=>{
-                    return (
-                        <li key={item.id}>
-                            <LibroCard libro={item}/>
-                        </li>
-                    )
-                })}
-             </Col>
-        {/*</Row>
-      </CardDeck> */}
-    </Container>
+    <>
+      <div className="row" style={{ justifyContent: "center" }}>
+        {libros.map((item) => {
+          return (
+            <div
+              className="card-deck  justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 mb-5 mt-4 mr-1 pr-1 d-flex"
+              key={item.id}
+            >
+              <LibroCard libro={item} />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }

@@ -6,8 +6,8 @@ import App from './componentes/App.jsx';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
-// import "jquery/dist/jquery";
-// import "popper.js/dist/popper";
+import "jquery/dist/jquery";
+import "popper.js/dist/popper";
 // import "react-icons/all"
 
 

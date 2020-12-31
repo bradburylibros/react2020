@@ -7,6 +7,7 @@ import LibroBarraBusq from '../componentes/LibroBarraBusq'
 import CarouselHome from "../componentes/CarouselHome";
 // import LibroApp from '../componentes/LibroApp'
 import Libro from '../componentes/Libro'
+import Suscr from '../componentes/Suscribirse.jsx'
 import Footer from '../componentes/Footer'
 
 import "../css/style.css";
@@ -65,6 +66,7 @@ export default function Home() {
             <Libro/>
           </Col>
         </Row>
+        <Suscr/>
     </>
   );
 }
