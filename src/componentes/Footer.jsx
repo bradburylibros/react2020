@@ -122,9 +122,9 @@ export default function Footer() {
           <footer>
             <section id="nav" className="bg-1 p-2 mt-4">
               <nav className="nav d-flex container align-items-center justify-content-center">
-                <a className="nav-link" href="index.html#inicio">
+                <Link className="nav-link" to="/">
                   Inicio
-                </a>
+                </Link>
                 <a className="nav-link" href="index.html#librorec">
                   Catalogo
                 </a>
