@@ -105,64 +105,64 @@ app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
       res.json({
         ok: true,
         libro,
-        message: "texto encontrado en titulo",
+        // message: "texto encontrado en titulo",
       });
     }); //de Libro.find(titulo)
     
     
-    // *******  BUSQUEDA TEXTO EN AUTOR **** //
-    Libro.find({ autor: reGex })
-    //.populate("categoria", "descripcion")
-    //.populate("clasificacion", "descripcion")
-    .exec((err, libro) => {
-      if (err) {
-        return res.status(500).json({
-          ok: false,
-          err,
-        });
-      }
-      res.json({
-        ok: true,
-        libro,
-        message: "texto encontrado en autor",
-      });
-    }); //de Libro.find(autor)
+    // // *******  BUSQUEDA TEXTO EN AUTOR **** //
+    // Libro.find({ autor: reGex })
+    // //.populate("categoria", "descripcion")
+    // //.populate("clasificacion", "descripcion")
+    // .exec((err, libro) => {
+    //   if (err) {
+    //     return res.status(500).json({
+    //       ok: false,
+    //       err,
+    //     });
+    //   }
+    //   res.json({
+    //     ok: true,
+    //     libro,
+    //     message: "texto encontrado en autor",
+    //   });
+    // }); //de Libro.find(autor)
 
-    // *******  BUSQUEDA TEXTO EN DESCRIPCION **** //
-    Libro.find({ descripcion: reGex })
-    //.populate("categoria", "descripcion")
-    //.populate("clasificacion", "descripcion")
-    .exec((err, libro) => {
-      if (err) {
-        return res.status(500).json({
-          ok: false,
-          err,
-        });
-      }
-      res.json({
-        ok: true,
-        libro,
-        message: "texto encontrado en descripcion",
-      });
-    }); //de Libro.find(descripcion)
+    // // *******  BUSQUEDA TEXTO EN DESCRIPCION **** //
+    // Libro.find({ descripcion: reGex })
+    // //.populate("categoria", "descripcion")
+    // //.populate("clasificacion", "descripcion")
+    // .exec((err, libro) => {
+    //   if (err) {
+    //     return res.status(500).json({
+    //       ok: false,
+    //       err,
+    //     });
+    //   }
+    //   res.json({
+    //     ok: true,
+    //     libro,
+    //     message: "texto encontrado en descripcion",
+    //   });
+    // }); //de Libro.find(descripcion)
 
-    // *******  BUSQUEDA TEXTO EN ISBN **** //
-    Libro.find({ isbn: reGex })
-    //.populate("categoria", "descripcion")
-    //.populate("clasificacion", "descripcion")
-    .exec((err, libro) => {
-      if (err) {
-        return res.status(500).json({
-          ok: false,
-          err,
-        });
-      }
-      res.json({
-        ok: true,
-        libro,
-        message: "texto encontrado en isbn"
-      });
-    }); //de Libro.find(isbn)
+    // // *******  BUSQUEDA TEXTO EN ISBN **** //
+    // Libro.find({ isbn: reGex })
+    // //.populate("categoria", "descripcion")
+    // //.populate("clasificacion", "descripcion")
+    // .exec((err, libro) => {
+    //   if (err) {
+    //     return res.status(500).json({
+    //       ok: false,
+    //       err,
+    //     });
+    //   }
+    //   res.json({
+    //     ok: true,
+    //     libro,
+    //     message: "texto encontrado en isbn"
+    //   });
+    // }); //de Libro.find(isbn)
 
 
   }); // fin get "/libro/buscar/:texto"
