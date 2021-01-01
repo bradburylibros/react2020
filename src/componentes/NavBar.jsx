@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Login from '../pages/Login'
 
 import "../css/style.css";
 
@@ -256,7 +257,9 @@ export default function NavBar() {
                     Ingresar
                   </a>
 
-                  <div
+				  <Login/>
+
+                  {/* <div
                     className="dropdown-menu bg-3 p-4 text-dark"
                     aria-labelledby="navbarDropdownMenuLink"
                   >
@@ -308,7 +311,8 @@ export default function NavBar() {
                     >
                       No tienes cuenta? Registrate
                     </a>
-                  </div>
+                  </div> */}
+				  
                 </li>
               </form>
             </ul>

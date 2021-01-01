@@ -13,6 +13,7 @@ export default function App() {
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/adminLibros' component={AdminLibros} />
+					{/* <Route exact path='/adminLibros' component={AdminLibros} /> */}
 					{/* <Route path='/adminUsuarios' component={AdminUsuarios} /> */}
 
 					<Route component ={NotFound} />
