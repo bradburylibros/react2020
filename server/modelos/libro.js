@@ -44,15 +44,18 @@ let libroSchema = new Schema({
     type: Boolean,
     default: true, // true:disponible y false:discontinuado
   },
+  // ----por el momento no estamos utilizando tca clasificacion y categoria 
    clasificacion: {
-    type: Schema.Types.ObjectId,
-    ref: "Clasificacion",
+    type: String,
     required: false,
+    // type: Schema.Types.ObjectId,
+    // ref: "Clasificacion",
    },
    categoria: {
-    type: Schema.Types.ObjectId,
-    ref: "Categoria",
+    type: String,
     required: false,
+    // type: Schema.Types.ObjectId,
+    // ref: "Categoria",
    },
   usuario: {
     type: Schema.Types.ObjectId,
