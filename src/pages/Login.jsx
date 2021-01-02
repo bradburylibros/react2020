@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LoginForm from "../componentes/LoginForm";
 
 export default function Login(props) {
-  //Asigno a esta variable lo que haya en el localstorage por si quedó logueado.
+  // token guarda el token de un usuario logueado o vacio
   const token = localStorage.getItem("token") || "";
   //--------------------------------------------------------------------------
   const [ingreso, setIngreso] = useState({
@@ -16,9 +16,9 @@ export default function Login(props) {
 
     if (ingreso.token.length > 0) {
       localStorage.setItem("id", JSON.stringify(ingreso.id));
-      props.history.push("/");
+      //props.history.push("/");
     }
-  }, [ingreso]);
+  }, [ingreso]); //esta escuchando al estado ingreso, cada vez que cambie se ejecutara el useEffect
 
   return (
     <>
