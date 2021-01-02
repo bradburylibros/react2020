@@ -154,7 +154,7 @@ app.delete('/usuario/:id', [verificaToken, verificaAdminRole], function (req, re
         if (!usuarioBorrado) {
             return res.status (400).json ({
                 ok:false,
-                message:('no se encontro al usuario que desea borrar'),
+                message: 'no se encontro al usuario que desea borrar',
             })
         } //if !usuarioBorrado
 

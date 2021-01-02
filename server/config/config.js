@@ -10,10 +10,10 @@ process.env.NODE_ENV=process.env.NODE_ENV || 'dev';
 let urlDB 
 
 if(process.env.NODE_ENV==='dev') {
-    urlDB='mongodb://localhost:27017/bradbury'     //urlDB tiene la dirección local
-    } else {
-        urlDB= process.env.MONGO_URI // en la variable de entorno creada con Heroku MONGO_URI
-        }
+	urlDB='mongodb://localhost:27017/bradbury'     //urlDB tiene la dirección local
+} else {
+	urlDB= process.env.MONGO_URI // en la variable de entorno creada con Heroku MONGO_URI
+}
     
 process.env.URLDB=urlDB
 
