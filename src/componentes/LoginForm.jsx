@@ -1,32 +1,5 @@
-// import React from 'react'
-// import {Form, Button} from 'react-bootstrap'
-
-// export default function LoginForm() {
-//     return (
-//         <Form>
-//             <Form.Group controlId="formBasicEmail">
-//                 <Form.Label>Usuario</Form.Label>
-//                 <Form.Control type="email" placeholder="Enter email" />
-//             </Form.Group>
-        
-//             <Form.Group controlId="formBasicPassword">
-//                 <Form.Label>Contraseña</Form.Label>
-//                 <Form.Control type="password" placeholder="Password" />
-//             </Form.Group>
-
-//             <Form.Group controlId="formBasicCheckbox">
-//                 <Form.Text className="text-muted">
-//                 Olvidaste la contraseña?
-//                 </Form.Text>
-//             </Form.Group>
-
-//             <Button variant="primary" type="submit">  Enviar </Button>
-//       </Form>
-//     )
-// }
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { Form, Button, Alert } from "react-bootstrap";
 
 export default function FormRegistro(props) {
@@ -36,7 +9,6 @@ export default function FormRegistro(props) {
       password: "",
     },
   });
-
   const [login, setLogin] = useState({
     token: "",
     error: null,
@@ -70,9 +42,8 @@ export default function FormRegistro(props) {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-	  });
-
-	  const data = await resp.json();
+      });
+      const data = await resp.json();
 
       //si la peticion devuelve ok:true
       if (data.ok) {
@@ -81,12 +52,11 @@ export default function FormRegistro(props) {
           error: null,
           ok: true,
           loading: false,
-		});
-		
+        });
         //Guardo en LocalStorage el token válido
         localStorage.setItem("token", JSON.stringify(data.token));
 
-        //Recibe el props.setIngreso de pages/Login.jsx
+        //Seteo la el estado ingreso de Login.jsx
         props.setIngreso({
           token: localStorage.getItem("token"),
           id: data.usuario._id,
@@ -108,9 +78,7 @@ export default function FormRegistro(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>
-          <b>Correo electrónico</b>
-        </Form.Label>
+        <Form.Label>Correo electrónico</Form.Label>
         <Form.Control
           type="email"
           placeholder="Enter email"
@@ -123,9 +91,7 @@ export default function FormRegistro(props) {
       </Form.Group>
 
       <Form.Group controlId="formBasicPassword">
-        <Form.Label>
-          <b>Contraseña</b>
-        </Form.Label>
+        <Form.Label>Contraseña</Form.Label>
         <Form.Control
           type="password"
           placeholder="Password"
@@ -137,12 +103,6 @@ export default function FormRegistro(props) {
         />
       </Form.Group>
       {login.ok === false && <Alert variant="danger">{login.error}</Alert>}
-      <div>
-        <span className="text-muted">Puedes registrarte </span>
-        <Link to="/registro">
-          <span> aquí</span>
-        </Link>
-      </div>
       <div className="d-flex justify-content-end">
         <Button
           variant="secondary"
@@ -155,3 +115,5 @@ export default function FormRegistro(props) {
     </Form>
   );
 }
+
+

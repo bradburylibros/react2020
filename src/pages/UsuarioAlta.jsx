@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../componentes/NavBar'
 
-export default function UsuarioNuevo() {
+export default function UsuarioAlta() {
     return (
         <>
             <NavBar />
