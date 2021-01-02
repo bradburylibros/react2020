@@ -56,10 +56,7 @@ app.get('/usuario/:id', verificaToken, function (req, res) {
     
     let id = req.params.id
     
-    Usuario.findById (id)
-    
-    .exec((err, usuarioDB)=>{
-
+    Usuario.findById (id,(err, usuarioDB)=>{
         if(err){
             return res.status(400).json({
                 ok: false,
@@ -71,14 +68,13 @@ app.get('/usuario/:id', verificaToken, function (req, res) {
    
 
         res.json({
-            ok:true,
-            usuario: usuarioDB,
+            ok: true,
+			usuario: usuarioDB,
         }) //res
 
     }) // del .exec
 
   }) // fin del GET x ID  
-  
 
 
 // ------------------ [ método POST ] ------------------ //
