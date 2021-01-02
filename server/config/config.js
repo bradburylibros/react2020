@@ -1,6 +1,7 @@
 
 // ------------- [ port ] ------------- //
-process.env.PORT = process.env.PORT || 3005;
+// process.env.PORT = process.env.PORT || 3005;
+process.env.PORT = process.env.PORT;
 
 //definimos variales de entorno
 //si estoy en ambiente de produccion es porque estoy en process.env.NODE_ENV sino, sino estoy en DEV
@@ -15,7 +16,8 @@ if(process.env.NODE_ENV==='dev') {
 	urlDB= process.env.MONGO_URI // en la variable de entorno creada con Heroku MONGO_URI
 }
     
-process.env.URLDB=urlDB
+// process.env.URLDB=urlDB
+process.env.URLDB = 'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury';
 
 
 // caducidad del TOEKN
