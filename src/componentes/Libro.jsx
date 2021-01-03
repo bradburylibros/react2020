@@ -120,8 +120,10 @@ export default function Libro() {
                    
         
                      {loading ? <h5>Cargando...</h5>
-                     :
-                     <LibroCardDeck libros={libros} /> 
+					 :
+					 <>
+                     	<LibroCardDeck libros={libros} /> 
+					 </>
                      }
                     
                  {/* </Col> */}

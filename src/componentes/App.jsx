@@ -6,6 +6,8 @@ import Home from '../pages/Home'
 import Layout from './Layout'
 import NotFound from './NotFound';
 
+window.globalVar = "http://localhost:3005";
+// window.globalVar = "https://mighty-peak-31803.herokuapp.com";
 
 export default function App() {
 	return (
@@ -14,9 +16,6 @@ export default function App() {
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/adminLibros' component={AdminDatos} />
-					{/* <Route exact path='/adminLibros' component={AdminLibros} /> */}
-					{/* <Route path='/adminUsuarios' component={AdminUsuarios} /> */}
-
 					<Route component ={NotFound} />
 				</Switch>
 			</Layout>

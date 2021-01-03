@@ -8,8 +8,9 @@ export default function FormDeleteCategoria(props) {
 
   const deleteCategoria = async () => {
     try {
+      const resp = await fetch(`${window.globalVar}/categoria/${id}`, {
     //   const resp = await fetch(`http://localhost:3005/categoria/${id}`, {
-      const resp = await fetch(`https://mighty-peak-31803.herokuapp.com/categoria/${id}`, {
+    //   const resp = await fetch(`https://mighty-peak-31803.herokuapp.com/categoria/${id}`, {
         method: "delete",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
