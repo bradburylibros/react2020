@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 // import "../css/tabla.css";
 import Logo from "../images/logo.png";
+
 export default function NavBarTest({ setLogout }) {
   const [token, setToken] = useState("");
 
@@ -35,7 +41,9 @@ export default function NavBarTest({ setLogout }) {
                   setLogout(true);
                 }}
               >
-                <i className="fa fa-sign-out" aria-hidden="true"></i>
+				  
+                {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
+					<FontAwesomeIcon icon={faSignOutAlt} />
               </Button>
               {/* {token === "" ? (
               <Button variant="outline-success" onClick={handleShow}>
