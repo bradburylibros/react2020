@@ -14,6 +14,6 @@ import "popper.js/dist/popper";
 // import "react-icons/all"
 
 
-ReactDOM.render(<App/>,   document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 // ReactDOM.render(<Login/>,   document.getElementById('root'));
 

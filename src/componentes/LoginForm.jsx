@@ -49,7 +49,7 @@ export default function FormRegistro(props) {
 	  
       const data = await resp.json();
 
-	  console.log("==[data]=======");
+	  console.log("==[data]==========");
 	  console.log(data);
 	  console.log("==================");
 
@@ -64,11 +64,13 @@ export default function FormRegistro(props) {
 		
         //Guardo en LocalStorage el token válido
         localStorage.setItem("token", JSON.stringify(data.token));
+        localStorage.setItem("role", JSON.stringify(data.usuario.rol));
 
         //Seteo la el estado ingreso de Login.jsx
         props.setIngreso({
           token: localStorage.getItem("token"),
           id: data.usuario._id,
+          role: data.usuario.rol,
         });
 
         //Si ok:false devuelvo el mensaje de error si usuario o contraseña son incorrectos
