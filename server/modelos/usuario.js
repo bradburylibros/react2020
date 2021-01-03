@@ -19,7 +19,7 @@ let usuarioSchema = new Schema({
   apellido: {
     type: String,
     required: [true, "campo requerido"],
-    trim: true,
+    // trim: true,
   },
   email: {
     type: String,

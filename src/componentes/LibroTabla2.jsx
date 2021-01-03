@@ -119,7 +119,7 @@ export default function LibroTabla2({ usuario }) {
       />
 
       {lista.loading ? (
-        <h2>Loading...</h2>
+        <h2>Cargando...</h2>
       ) : (
         <>
           <h2 className="text-center">Lista de Libros</h2>
