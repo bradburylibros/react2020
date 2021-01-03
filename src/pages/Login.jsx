@@ -16,7 +16,7 @@ export default function Login(props) {
 
     if (ingreso.token.length > 0) {
       localStorage.setItem("id", JSON.stringify(ingreso.id));
-      //props.history.push("/");
+    	// props.history.push("/adminLibros");
     }
   }, [ingreso]); //esta escuchando al estado ingreso, cada vez que cambie se ejecutara el useEffect
 
@@ -30,21 +30,21 @@ export default function Login(props) {
           <img src={Logo} alt="" />
         </Link>
       </nav> */}
+		
 
-      <div id="contenedor" className="container mt-4">
+      <div id="contenedor" className="container">
         <div className="row">
-          <div className="col-12 col-md-12 col-lg-6 mb-3">
+          <div className="col-12 col-md-12 col-lg-12 mb-3">
             {/* <img src={Portada} alt="portada" /> */}
           </div>
-          <div id="formulario" className="col-12 col-md-12 col-lg-6 mb-3 ">
+          <div id="formulario" className="col-12 col-md-12 col-lg-12 mb-3 ">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title text-center">Ingreso</h5>
-				
                 {token.length > 0 ? (
                   <div>
-                    <h3 className="text-center">Ya se encuentra logueado</h3>
-                    <Link to="/">Seguir</Link>
+                    <h3 className="text-center">Usuario logueado</h3>
+                    {/* <Link to="/">Seguir</Link> */}
                   </div>
                 ) : (
                   <LoginForm setIngreso={setIngreso} />
@@ -54,6 +54,8 @@ export default function Login(props) {
           </div>
         </div>
       </div>
+
+
     </>
   );
 }

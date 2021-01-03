@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
 export default function FormRegistro(props) {
+	
   const [user, setUser] = useState({
     form: {
       email: "",
       password: "",
     },
   });
+
   const [login, setLogin] = useState({
     token: "",
     error: null,
@@ -33,17 +35,23 @@ export default function FormRegistro(props) {
     //seteo login en verdadero
     setLogin({
       loading: true,
-    });
+	});
+	
     try {
       //Método POST para enviar info de datos de usuario al servidor
       const resp = await fetch("http://localhost:3005/login", {
         method: "POST",
         body: JSON.stringify(user.form),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+		  "Content-type": "application/json; charset=UTF-8"
         },
-      });
+	  });
+	  
       const data = await resp.json();
+
+	  console.log("==[data]=======");
+	  console.log(data);
+	  console.log("==================");
 
       //si la peticion devuelve ok:true
       if (data.ok) {
@@ -52,7 +60,8 @@ export default function FormRegistro(props) {
           error: null,
           ok: true,
           loading: false,
-        });
+		});
+		
         //Guardo en LocalStorage el token válido
         localStorage.setItem("token", JSON.stringify(data.token));
 
@@ -75,10 +84,13 @@ export default function FormRegistro(props) {
       console.log(error);
     }
   };
+  
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>Correo electrónico</Form.Label>
+        <Form.Label>
+			<b>Correo electrónico</b>
+		</Form.Label>
         <Form.Control
           type="email"
           placeholder="Enter email"
@@ -91,7 +103,9 @@ export default function FormRegistro(props) {
       </Form.Group>
 
       <Form.Group controlId="formBasicPassword">
-        <Form.Label>Contraseña</Form.Label>
+        <Form.Label>
+			<b>Contraseña</b>
+		</Form.Label>
         <Form.Control
           type="password"
           placeholder="Password"
@@ -109,7 +123,7 @@ export default function FormRegistro(props) {
           type="submit"
           disabled={login.loading ? true : false}
         >
-          Enviar
+          Iniciar Sesión
         </Button>
       </div>
     </Form>

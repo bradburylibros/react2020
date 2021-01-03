@@ -23,7 +23,7 @@ app.get('/libro', verificaToken, function (req, res) {
     .sort("titulo") //orden ascendente (A-Z) por titulo
     .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
     .populate("categoria", "descripcion") //trae categoria
-    .populate("clasificacion", "descripcion") //trae clasificación
+    // .populate("clasificacion", "descripcion") //trae clasificación
     .exec((err, libros)=>{
 
         if(err){
@@ -60,7 +60,7 @@ app.get('/libro/:id', verificaToken, function (req, res) {
     Libro.findById (id)
     .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
     .populate("categoria", "descripcion") //trae categoria
-    .populate("clasificacion", "descripcion") //trae clasificación
+    // .populate("clasificacion", "descripcion") //trae clasificación
     .exec((err, libroDB)=>{
 
         if(err){
@@ -180,7 +180,7 @@ app.post('/libro', [verificaToken, verificaAdminRole], function (req, res) {
     precio: body.precio,
     stock: body.stock,
     disponible: body.disponible,
-    clasificacion: body.clasificacion, // mando el id de la clasificacion
+    // clasificacion: body.clasificacion, // mando el id de la clasificacion
     categoria: body.categoria, // mando el id de la categoria
 })
 

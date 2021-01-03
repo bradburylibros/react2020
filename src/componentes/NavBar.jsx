@@ -240,10 +240,12 @@ export default function NavBar() {
                 </div>
               </li>
 
-              <form
+              {/* <form
                 // onSubmit="cargar(event)"
-                id="login"
-              >
+                // id="login"
+              > */}
+
+				  <div>
                 <li className="nav-item dropdown dropleft">
                   <a
                     className="nav-link dropdown-toggle text-white"
@@ -257,13 +259,16 @@ export default function NavBar() {
                     Ingresar
                   </a>
 
-				  <Login/>
+				  {/* <Login/> */}
 
-                  {/* <div
-                    className="dropdown-menu bg-3 p-4 text-dark"
+                  <div
+                    className="dropdown-menu text-dark"
                     aria-labelledby="navbarDropdownMenuLink"
-                  >
-                    <div className="form-group">
+                  	>
+
+					<Login/>
+
+                    {/* <div className="form-group">
                       <label for="exampleDropdownFormEmail1">Email </label>
                       <input
                         type="email"
@@ -310,11 +315,14 @@ export default function NavBar() {
                       href="#"
                     >
                       No tienes cuenta? Registrate
-                    </a>
-                  </div> */}
+                    </a> */}
+
+                  </div>
 				  
                 </li>
-              </form>
+				</div>
+              {/* </form> */}
+
             </ul>
           </div>
         </nav>

@@ -85,11 +85,13 @@ export default function LibroFormAlta(props) {
 
 
   const postLibro = async (e) => {
-    e.preventDefault();
+	e.preventDefault();
+	
     setEstados({
       loading: true,
       error: null,
-    });
+	});
+	
     try {
       const resp = await fetch(`http://localhost:3005/libro`, {
         method: "POST",
@@ -98,15 +100,18 @@ export default function LibroFormAlta(props) {
           "Content-type": "application/json; charset=UTF-8",
           token: `${token}`,
         },
-      });
+	  });
+	  
       const data = await resp.json();
-      console.log(data);
+	  console.log(data);
+	  
       setEstados({
         loading: false,
         error: null,
-      });
+	  });
+	  
       if (data.ok) {
-        props.actualizaLista(props.page); //???????????
+        props.actualizaLista(props.page);
         props.handleClose();
       } else {
         setEstados({
@@ -221,14 +226,14 @@ export default function LibroFormAlta(props) {
               value={state.form.disponible}
               name="disponible"
               onChange={handleChange}
-              required
+            //   required
               disabled={estado.loading ? true : false}
             />
           </Form.Group> 
 
           <Form.Group>
-            <Form.Label>Clasificación</Form.Label>
-            <Form.Control
+            {/* <Form.Label>Clasificación</Form.Label> */}
+            {/* <Form.Control
               as="select"
               name="clasificacion"
               onChange={handleChange}
@@ -242,7 +247,8 @@ export default function LibroFormAlta(props) {
                   {clasificacion.descripcion}
                 </option>
               ))}
-            </Form.Control>
+            </Form.Control> */}
+
             {/* 
                 <Form.Control 
                 as="select" 
@@ -278,6 +284,7 @@ export default function LibroFormAlta(props) {
                 </option>
               ))}
             </Form.Control>
+
             {/* 
                 <Form.Control 
                 as="select" 
@@ -294,6 +301,7 @@ export default function LibroFormAlta(props) {
                 <option>Recomendados</option>
                 </Form.Control> 
             */}
+			
           </Form.Group>
           
           {estado.error === false && (

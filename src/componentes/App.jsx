@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import AdminLibros from '../pages/AdminLibros'
+import AdminDatos from '../pages/AdminDatos'
+// import AdminLibros from '../pages/AdminLibros'
 import Home from '../pages/Home'
 import Layout from './Layout'
 import NotFound from './NotFound';
@@ -12,7 +13,7 @@ export default function App() {
 			<Layout>
 				<Switch>
 					<Route exact path='/' component={Home} />
-					<Route exact path='/adminLibros' component={AdminLibros} />
+					<Route exact path='/adminLibros' component={AdminDatos} />
 					{/* <Route exact path='/adminLibros' component={AdminLibros} /> */}
 					{/* <Route path='/adminUsuarios' component={AdminUsuarios} /> */}
 

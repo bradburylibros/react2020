@@ -42,20 +42,21 @@ let libroSchema = new Schema({
   },
   disponible: {
     type: Boolean,
-    default: true, // true:disponible y false:discontinuado
+	default: true, // true:disponible y false:discontinuado
+	required: false
   },
   // ----por el momento no estamos utilizando tca clasificacion y categoria 
-   clasificacion: {
-    type: String,
-    required: false,
-    // type: Schema.Types.ObjectId,
-    // ref: "Clasificacion",
-   },
+//    clasificacion: {
+//     type: String,
+//     required: false,
+//     // type: Schema.Types.ObjectId,
+//     // ref: "Clasificacion",
+//    },
    categoria: {
-    type: String,
+	type: Schema.Types.ObjectId,
+	//    type: String,
+    ref: "Categoria",
     required: false,
-    // type: Schema.Types.ObjectId,
-    // ref: "Categoria",
    },
   usuario: {
     type: Schema.Types.ObjectId,

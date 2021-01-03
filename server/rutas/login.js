@@ -21,16 +21,20 @@ app.post('/login',(req,res)=>{
 
         if(!usuarioDB){
             return res.status(400).json({
-                ok:false,
-                message: "USUARIO o contraseña incorrectos"
+				ok:false,
+				err: {
+					message: "Usuario o contraseña incorrectos",
+				  }
             })
         } //no se encuentra el usuario
 
         // primer argumento la contraseña del login y 2º la ontraseña en usuarios
         if(!bcrypt.compareSync(body.password,usuarioDB.password)){
             return res.status(400).json({
-                ok:false,
-                message: "usuario o CONTRASEÑA incorrectos"
+				ok:false,
+				err: {
+					message: "Usuario o contraseña incorrectos",
+				  }
             })
         } //no es la contraseña
 
