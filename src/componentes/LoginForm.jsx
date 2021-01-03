@@ -121,9 +121,10 @@ export default function FormRegistro(props) {
       {login.ok === false && <Alert variant="danger">{login.error}</Alert>}
       <div className="d-flex justify-content-end">
         <Button
-          variant="secondary"
+          variant=""
           type="submit"
-          disabled={login.loading ? true : false}
+		  disabled={login.loading ? true : false}
+		  className="btn btn btn-outline-danger"
         >
           Iniciar Sesión
         </Button>

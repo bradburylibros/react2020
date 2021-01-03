@@ -256,7 +256,7 @@ export default function NavBar() {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Ingresar
+                    Login
                   </a>
 
 				  {/* <Login/> */}

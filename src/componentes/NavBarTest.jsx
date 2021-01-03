@@ -5,9 +5,11 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import React, { useEffect, useState } from "react";
-import { Navbar, Nav, Form, Button } from "react-bootstrap";
+import { Navbar, Nav, Form, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import "../css/tabla.css";
 import Logo from "../images/logo.png";
+import Home from "../pages/Home";
 
 export default function NavBarTest({ setLogout }) {
   const [token, setToken] = useState("");
@@ -26,20 +28,37 @@ export default function NavBarTest({ setLogout }) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto mr-2">
-              {/* <Nav.Link href="#home">
+            
+			  {/* <Nav.Link href="/">
               <i className="fas ad"></i>
               Home
             </Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link> */}
+
             </Nav>
             <Form inline>
+			<Button
+				variant="outline-info"
+				href="/"
+                // onClick={() => {
+				// }}
+				title="Ir a la Página Principal"
+				className="mr-1 mt-3 mb-2"
+              >
+				  
+                {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
+					<FontAwesomeIcon icon={faHome} />
+              </Button>
+
               <Button
                 variant="outline-info"
                 onClick={() => {
                   setToken("");
                   localStorage.clear();
                   setLogout(true);
-                }}
+				}}
+				title="Cerrar Sesión"
+				className="ml-1 mt-3 mb-2"
               >
 				  
                 {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
