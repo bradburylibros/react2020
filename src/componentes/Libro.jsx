@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
-import {Container, Row, Col} from 'react-bootstrap'
-
+import {Container, Row} from 'react-bootstrap'
 import LibroCardDeck from './LibroCardDeck'
-
 
 export default function Libro() {
 
@@ -115,9 +113,7 @@ export default function Libro() {
 
     return (
         <Container>
-            <Row ClassName="justify-content-between">
-                {/* <Col> */}
-                   
+            <Row ClassName="justify-content-between">                  
         
                      {loading ? <h5>Cargando...</h5>
 					 :
@@ -126,7 +122,6 @@ export default function Libro() {
 					 </>
                      }
                     
-                 {/* </Col> */}
            </Row>
         </Container>
     )

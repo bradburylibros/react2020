@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import AdminDatos from '../pages/AdminDatos'
-// import AdminLibros from '../pages/AdminLibros'
-import Home from '../pages/Home'
+
+
 import Layout from './Layout'
+import Home from '../pages/Home'
 import NotFound from './NotFound';
 
 // window.globalVar = "http://localhost:3005";

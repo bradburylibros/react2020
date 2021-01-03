@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { Modal, Button } from "react-bootstrap"
+import { Modal, Button } from 'react-bootstrap'
 
-export default function AltaCategoriaForm(props) {
+export default function ClasificaFormAlta(props) {
   
-  //   let token = JSON.stringify(localStorage.getItem("token"));
-  let id = JSON.stringify(localStorage.getItem("id"));
+  let id = JSON.stringify(localStorage.getItem("id"))
+  // let token = JSON.stringify(localStorage.getItem("token"))
+
   const [state, setState] = useState({
     descripcion: "",
     usuario: "",
@@ -18,12 +19,11 @@ export default function AltaCategoriaForm(props) {
     });
   };
 
-  const addCategoria = async () => {
-    let token = JSON.parse(localStorage.getItem("token"));
+  const addClasificacion = async () => {
+    let token = JSON.parse(localStorage.getItem("token"))
     try {
-      const resp = await fetch(`${window.globalVar}/categoria`, {
-    //   const resp = await fetch("http://localhost:3005/categoria", {
-    //   const resp = await fetch("https://mighty-peak-31803.herokuapp.com/categoria", {
+      // const resp = await fetch("https://whispering-journey-97600.herokuapp.com/clasificacion"
+      const resp = await fetch("http://localhost:3005/clasificacion", {
         method: "POST",
         body: JSON.stringify(state),
         headers: {
@@ -31,23 +31,23 @@ export default function AltaCategoriaForm(props) {
           token: `${token}`,
         },
       });
-      props.actualizaCategoria();
+      props.actualizaClasificacion();
       props.handleClose();
     } catch (error) {
       console.log(error);
     }
-  };
+  }
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>Categorias</Modal.Title>
+        <Modal.Title>Clasificación</Modal.Title>
       </Modal.Header>
-      <form onSubmit={addCategoria}>
+      <form onSubmit={addClasificacion}>
         <Modal.Body>
           <div className="container">
             <div className="col">
               <div className="form-group">
-                <label>Nombre de la nueva categoría</label>
+                <label>Nombre de la Clasificación</label>
                 <input
                   type="text"
                   className="form-control"

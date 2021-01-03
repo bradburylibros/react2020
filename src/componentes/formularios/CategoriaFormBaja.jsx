@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button } from 'react-bootstrap'
 
-export default function FormDeleteCategoria(props) {
+export default function CategoriaFormBaja(props) {
   let id = props.id;
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = JSON.parse(localStorage.getItem("token"))
 
   const deleteCategoria = async () => {
     try {
@@ -17,10 +17,10 @@ export default function FormDeleteCategoria(props) {
           token: `${token}`,
         },
       });
-      props.actualizaCategoria();
-      props.handleClose();
+      props.actualizaCategoria()
+      props.handleClose()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
 
@@ -29,7 +29,7 @@ export default function FormDeleteCategoria(props) {
       <Modal.Header closeButton>
         <Modal.Title>Eliminar Categoría</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Está seguro que desea eliminar la categoría?</Modal.Body>
+      <Modal.Body>Estás seguro?</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={props.handleClose}>
           Cancelar
@@ -37,7 +37,7 @@ export default function FormDeleteCategoria(props) {
         <Button
           variant="danger"
           onClick={() => {
-            deleteCategoria();
+            deleteCategoria()
           }}
         >
           Borrar
