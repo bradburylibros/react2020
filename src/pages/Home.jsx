@@ -40,6 +40,7 @@ export default function Home() {
 
   return (
     <>
+	<NavBar/>
         <Row>
           <Col>
                 {/* Barra de busqueda */}

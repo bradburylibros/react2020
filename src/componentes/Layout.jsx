@@ -10,7 +10,7 @@ export default function Layout(props) {
 			<Container>
 				<Row>
 					<Col>
-						<Navbar />
+						{/* <Navbar /> */}
 						{props.children}
 						<Footer />
 					</Col>
