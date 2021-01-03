@@ -274,16 +274,8 @@ export default function NavBar() {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-<<<<<<< HEAD
-                    Login
-                  </a>
-
-				  {/* <Login/> */}
-
-=======
                     Ingresar
                   </Link>
->>>>>>> silvia
                   <div
                     className="dropdown-menu text-dark"
                     aria-labelledby="navbarDropdownMenuLink"
