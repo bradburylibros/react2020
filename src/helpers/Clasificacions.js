@@ -1,6 +1,8 @@
 export const getClasificacion = async () => {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
+      
+      //const resp = await fetch("https://whispering-journey-97600.herokuapp.com/clasificacion", {
       const resp = await fetch("http://localhost:3005/clasificacion", {
         method: "GET",
         headers: {

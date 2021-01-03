@@ -4,10 +4,12 @@ import Logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Login from '../pages/Login'
+import {Nav, Dropdown} from 'react-bootstrap'
 
 import "../css/style.css";
 
 export default function NavBar() {
+  
   return (
     <header>
       <div id="inicio">
@@ -32,8 +34,17 @@ export default function NavBar() {
                 <input
                   className="form-control mr-sm-2"
                   type="search"
-                  placeholder="Título,autor o ISBN"
+                  placeholder="Título, autor o ISBN"
                   aria-label="Search"
+                  /* de LibroBarraBusq
+                  className='form-control mr-sm-2'
+                  type='search'
+                  name='texto'
+                  value={buscarTxt.texto}
+                  onChange={handleChange}
+                  autoComplete='off'
+                  placeholder='Bucar texto (Título, Autor, ISBN)'
+                  */
                 />
 
                 <button
@@ -43,6 +54,7 @@ export default function NavBar() {
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </form>
+
               <li className="nav-item">
                 <Link className="nav-link text-white" to="/">
                   Inicio
@@ -51,30 +63,32 @@ export default function NavBar() {
            
 
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link text-white dropdown-toggle"
+                {/* <a href="#" ---> Link to="ruta exacta /home , /registro etc"*/}
+                <Link to = "/"
+                  className="nav-link text-white dropdown-toggle"
                   data-toggle="dropdown"
-                  href="#"
+                  
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
                   Categoría
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">
-                    Acción
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Sci-Fi
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Otros
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">
+                </Link>
+                
+                <div className="dropdown-menu">
+                  <Link to="/" className="dropdown-item" >
+                    Novedades
+                  </Link>
+                  <Link to="/" className="dropdown-item" >
+                    Recomendados
+                    </Link>
+                  <Link to="/" className="dropdown-item" >
+                    Más vendidos
+                  </Link>
+                  <div className="dropdown-divider"></div>
+                  <Link to="/" className="dropdown-item" >
                     Todos
-                  </a>
+                  </Link>
                 </div>
               </li>
               <li className="nav-item">
@@ -85,6 +99,7 @@ export default function NavBar() {
                 >
                   Regístrate
                 </a>
+{/* ------------ [ MODAL REGISTRATE ] ------------ */}
                 <div
                   className="modal fade"
                   id="exampleModal"
@@ -244,30 +259,37 @@ export default function NavBar() {
                 // onSubmit="cargar(event)"
                 // id="login"
               > */}
-
+{/* ------------ [ INGRESAR AL SITIO (login)] ------------ */}
+{/*
+ MODIFIQUE EL a por LINK --> Link to="/login" entonces no llamo a 
+ al componente </Login> PROBANDOOOO 
+*/}
 				  <div>
                 <li className="nav-item dropdown dropleft">
-                  <a
+                  <Link to="/"
                     className="nav-link dropdown-toggle text-white"
-                    href="#"
                     id="navbarDropdownMenuLink"
                     role="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
+<<<<<<< HEAD
                     Login
                   </a>
 
 				  {/* <Login/> */}
 
+=======
+                    Ingresar
+                  </Link>
+>>>>>>> silvia
                   <div
                     className="dropdown-menu text-dark"
                     aria-labelledby="navbarDropdownMenuLink"
                   	>
-
-					<Login/>
-
+					          <Login/> 
+{/* ------------ [ MODAL INGRESAR (login)] ------------ */}
                     {/* <div className="form-group">
                       <label for="exampleDropdownFormEmail1">Email </label>
                       <input

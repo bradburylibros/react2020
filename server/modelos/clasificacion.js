@@ -16,6 +16,5 @@ let clasificacionSchema = new Schema({
 });
 
 
-
 // --------------- [ exportamos el modelo ] --------------- //
 module.exports = mongoose.model("Clasificacion", clasificacionSchema);

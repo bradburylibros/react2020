@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { Modal, Button } from "react-bootstrap"
+import { Modal, Button } from 'react-bootstrap'
 
-export default function AltaCategoriaForm(props) {
+export default function CategoriaFormAlta(props) {
   
-  //   let token = JSON.stringify(localStorage.getItem("token"));
   let id = JSON.stringify(localStorage.getItem("id"));
+  // let token = JSON.stringify(localStorage.getItem("token"));
+
   const [state, setState] = useState({
     descripcion: "",
     usuario: "",
@@ -21,6 +22,7 @@ export default function AltaCategoriaForm(props) {
   const addCategoria = async () => {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
+      // const resp = await fetch("https://whispering-journey-97600.herokuapp.com/categoria"
       const resp = await fetch("http://localhost:3005/categoria", {
         method: "POST",
         body: JSON.stringify(state),
@@ -45,7 +47,7 @@ export default function AltaCategoriaForm(props) {
           <div className="container">
             <div className="col">
               <div className="form-group">
-                <label>Nombre de la nueva categoría</label>
+                <label>Nombre de la Categoría</label>
                 <input
                   type="text"
                   className="form-control"
