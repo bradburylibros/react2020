@@ -8,7 +8,8 @@ export default function LibroMsgEliminar(props) {
   const deleteProductos = async () => {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      const resp = await fetch(`http://localhost:3005/libro/${id}`, {
+    //   const resp = await fetch(`http://localhost:3005/libro/${id}`, {
+      const resp = await fetch(`https://mighty-peak-31803.herokuapp.com/libro/${id}`, {
         method: "delete",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

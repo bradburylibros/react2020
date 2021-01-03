@@ -51,7 +51,8 @@ export default function LibroFormAlta(props) {
 
   const getCategoria = async () => {
     try {
-      const resp = await fetch("http://localhost:3005/categoria", {
+    //   const resp = await fetch("http://localhost:3005/categoria", {
+      const resp = await fetch("https://mighty-peak-31803.herokuapp.com/categoria", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -68,7 +69,8 @@ export default function LibroFormAlta(props) {
 
   const getClasificacion = async () => {
     try {
-      const resp = await fetch("http://localhost:3005/clasificacion", {
+    //   const resp = await fetch("http://localhost:3005/clasificacion", {
+      const resp = await fetch("https://mighty-peak-31803.herokuapp.com/clasificacion", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -93,7 +95,8 @@ export default function LibroFormAlta(props) {
 	});
 	
     try {
-      const resp = await fetch(`http://localhost:3005/libro`, {
+    //   const resp = await fetch(`http://localhost:3005/libro`, {
+      const resp = await fetch(`https://mighty-peak-31803.herokuapp.com/libro`, {
         method: "POST",
         body: JSON.stringify(state.form),
         headers: {

@@ -54,7 +54,8 @@ export default function LibroTabla2({ usuario }) {
     if (termino !== "") {
       try {
         const resp = await fetch(
-          `http://localhost:3005/libro/buscar/${termino}`,
+        //   `http://localhost:3005/libro/buscar/${termino}`,
+          `https://mighty-peak-31803.herokuapp.com/libro/buscar/${termino}`,
           {
             method: "GET",
             headers: {
