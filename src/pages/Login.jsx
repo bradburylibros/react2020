@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "../componentes/LoginForm";
+import { Button } from "react-bootstrap";
 
 export default function Login(props) {
   // token guarda el token de un usuario logueado o vacio
@@ -47,13 +48,46 @@ export default function Login(props) {
 				console.log(`ingreso.role: ${ingreso.role}`)
 				}
                 {token.length > 0 ? (
-                  <div>
+                  <div className="col-lg-12">
 					{roleLocalStorage === '"ADMIN"' ?
 					(<>
-						<h5 className="text-center">Usuario Administrador Logueado</h5>
-						<Link to="/adminLibros">Página Admin</Link>
+						<div className="text-center"><span>Usuario Administrador Logueado</span></div>
+						<hr/>
+						<div className="text-center"><Link to="/adminLibros">Ir a la página de Admin</Link></div>
+						<hr/>
+
+						<div className="text-center">
+								<Button
+									className="btn btn-danger"
+									onClick={() => {
+										// setToken("");
+										localStorage.clear();
+										// setLogout(true);
+										}}
+									href="/"
+								>
+									Cerrar Sesión
+								</Button>
+							</div>
 					</>)
-					:(<h5 className="text-center">Usuario Logueado</h5>)}
+					:(
+						<div className="col-lg-12">
+							<h5 className="text-center">Usuario Logueado</h5>
+							<div className="text-center">
+								<Button
+									className="btn btn-danger"
+									onClick={() => {
+										// setToken("");
+										localStorage.clear();
+										// setLogout(true);
+										}}
+									href="/"
+								>
+									Cerrar Sesión
+								</Button>
+							</div>
+						</div>
+					)}
                   </div>
                 ) : (
                   <LoginForm setIngreso={setIngreso} />
