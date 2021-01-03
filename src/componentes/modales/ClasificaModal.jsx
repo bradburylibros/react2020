@@ -1,24 +1,24 @@
 import React from 'react'
 import { Modal } from 'react-bootstrap'
 
-import CategoriaFormAlta from '../formularios/CategoriaFormAlta'
-import CategoriaFormBaja from '../formularios/CategoriaFormBaja'
+import ClasificaFormAlta from '../formularios/ClasificaFormAlta'
+import ClasificaFormBaja from '../formularios/ClasificaFormBaja'
 
-export default function CategoriaModal(props) {
+export default function ClasificaModal(props) {
   return (
     <>
       <Modal show={props.show} onHide={props.handleClose} centered>
         {props.modalType.tipo === "add" && (
-          <CategoriaFormAlta
+          <ClasificaFormAlta
             handleClose={props.handleClose}
-            actualizaCategoria={props.actualizaCategoria}
+            actualizaClasificacion={props.actualizaClasificacion}
           />
         )}
         {props.modalType.tipo === "delete" && (
-          <CategoriaFormBaja
+          <ClasificaFormBaja
             handleClose={props.handleClose}
             id={props.modalType.id}
-            actualizaCategoria={props.actualizaCategoria}
+            actualizaClasificacion={props.actualizaClasificacion}
           />
         )}
       </Modal>

@@ -23,7 +23,7 @@ app.get('/libro', verificaToken, function (req, res) {
     .sort("titulo") //orden ascendente (A-Z) por titulo
     .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
     .populate("categoria", "descripcion") //trae categoria
-    // .populate("clasificacion", "descripcion") //trae clasificación
+    .populate("clasificacion", "descripcion") //trae clasificación
     .exec((err, libros)=>{
 
         if(err){
@@ -60,7 +60,7 @@ app.get('/libro/:id', verificaToken, function (req, res) {
     Libro.findById (id)
     .populate("usuario", "nombre email") //trae datos del usuario que dió de alta el libro
     .populate("categoria", "descripcion") //trae categoria
-    // .populate("clasificacion", "descripcion") //trae clasificación
+    .populate("clasificacion", "descripcion") //trae clasificación
     .exec((err, libroDB)=>{
 
         if(err){
@@ -93,8 +93,8 @@ app.get("/libro/buscar/:texto", verificaToken, (req, res) => {
     
   // *******  BUSQUEDA TEXTO EN TITULO **** //
   Libro.find({ titulo: reGex})
-    //.populate("categoria", "descripcion")
-    //.populate("clasificacion", "descripcion")
+    .populate("categoria", "descripcion")
+    .populate("clasificacion", "descripcion")
     .exec((err, libro) => {
       if (err) {
         return res.status(500).json({
