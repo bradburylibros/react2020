@@ -4,8 +4,8 @@ import { Modal, Button } from 'react-bootstrap'
 
 export default function CategoriaFormAlta(props) {
   
-  let id = JSON.stringify(localStorage.getItem("id"));
-  // let token = JSON.stringify(localStorage.getItem("token"));
+  let id = JSON.stringify(localStorage.getItem("id"))
+  // let token = JSON.stringify(localStorage.getItem("token"))
 
   const [state, setState] = useState({
     descripcion: "",
@@ -20,7 +20,7 @@ export default function CategoriaFormAlta(props) {
   };
 
   const addCategoria = async () => {
-    let token = JSON.parse(localStorage.getItem("token"));
+    let token = JSON.parse(localStorage.getItem("token"))
     try {
       // const resp = await fetch("https://whispering-journey-97600.herokuapp.com/categoria"
       const resp = await fetch("http://localhost:3005/categoria", {
@@ -34,7 +34,7 @@ export default function CategoriaFormAlta(props) {
       props.actualizaCategoria();
       props.handleClose();
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
   return (

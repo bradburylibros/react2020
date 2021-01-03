@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Modal, Button } from 'react-bootstrap'
 
@@ -15,10 +15,10 @@ export default function CategoriaFormBaja(props) {
           token: `${token}`,
         },
       });
-      props.actualizaCategoria();
-      props.handleClose();
+      props.actualizaCategoria()
+      props.handleClose()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
 
@@ -35,7 +35,7 @@ export default function CategoriaFormBaja(props) {
         <Button
           variant="danger"
           onClick={() => {
-            deleteCategoria();
+            deleteCategoria()
           }}
         >
           Borrar

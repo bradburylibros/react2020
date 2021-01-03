@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { Link } from "react-router-dom";
 import {Row, Col} from 'react-bootstrap'
 
-//import NavBar from '../componentes/NavBar'
+import NavBar from '../componentes/NavBar'
 import LibroBarraBusq from '../componentes/LibroBarraBusq'
 import CarouselHome from "../componentes/CarouselHome";
 // import LibroApp from '../componentes/LibroApp'
