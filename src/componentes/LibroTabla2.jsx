@@ -124,12 +124,12 @@ export default function LibroTabla2({ usuario }) {
         <>
           <h2 className="text-center">Lista de Libros</h2>
 
-          {/* Sección de buscar producto */}
+          {/* Sección de buscar libro */}
           <div className="col-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2">
             <Form.Group>
               <Form.Control
                 type="text"
-                placeholder="Buscar producto..."
+                placeholder="Buscar libro..."
                 name="buscar"
                 onChange={buscarLibro}
                 onClick={limpiarBuscador}
@@ -143,7 +143,7 @@ export default function LibroTabla2({ usuario }) {
                 <th>Nombre</th>
                 <th>Estado</th>
                 <th>Precio</th>
-                <th>Categoria</th>
+                <th>Categoría</th>
                 <th>
                   {usuario.role === "ADMIN" && (
                     <button
