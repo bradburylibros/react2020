@@ -5,8 +5,11 @@ export const getLibros = async (page) => {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/libro?limite=5&desde=${page}`,
-        // `http://localhost:3005/libro`,
+		  `${window.globalVar}/libro?limite=5&desde=${page}`,
+		  // `http://localhost:3005/libro?limite=5&desde=${page}`,
+		  // `https://mighty-peak-31803.herokuapp.com/libro?limite=5&desde=${page}`,
+
+		  // `http://localhost:3005/libro`,
         {
           method: "GET",
           headers: {

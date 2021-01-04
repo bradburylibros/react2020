@@ -116,8 +116,10 @@ export default function Libro() {
             <Row ClassName="justify-content-between">                  
         
                      {loading ? <h5>Cargando...</h5>
-                     :
-                     <LibroCardDeck libros={libros} /> 
+					 :
+					 <>
+                     	<LibroCardDeck libros={libros} /> 
+					 </>
                      }
                     
            </Row>
