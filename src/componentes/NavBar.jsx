@@ -274,13 +274,15 @@ export default function NavBar() {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Ingresar
+                    Login
                   </Link>
                   <div
                     className="dropdown-menu text-dark"
                     aria-labelledby="navbarDropdownMenuLink"
                   	>
 					          <Login/> 
+
+							  
 {/* ------------ [ MODAL INGRESAR (login)] ------------ */}
                     {/* <div className="form-group">
                       <label for="exampleDropdownFormEmail1">Email </label>
