@@ -141,7 +141,7 @@ export default function Footer() {
           </footer>
           <section id="firma" className="p-1">
             <h6 className="text-center m-0 text-light">
-              Desarrollado por Hooklook
+              Desarrollado por HookLook
             </h6>
           </section>
         </section>
