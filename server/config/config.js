@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB
-// process.env.URLDB = 'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury';
+process.env.URLDB = 'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury';
 
 
 // caducidad del TOEKN
