@@ -19,7 +19,7 @@ process.env.URLDB = urlDB
 // process.env.URLDB = 'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury';
 
 
-// caducidad del TOEKN
+// caducidad del TOKEN
 process.env.CADUCIDAD_TOKEN = "14d"
 
 // definimos SEED

@@ -7,6 +7,7 @@ import { getUsuario } from "../helpers/Usuario";
 
 import LibroTabla from "../componentes/LibroTabla2";
 import CategoriaTabla from "../componentes/LibroTablaCategoria";
+import ClasificaTabla from "../componentes/LibroTablaClasifica"
 
 export default function AdminDatos(props) {
 
@@ -71,6 +72,11 @@ export default function AdminDatos(props) {
                 <CategoriaTabla usuario={usuario} />
               </div>
             </div>
+            {/* <div className="row mb-4">
+              <div className="col-12 col-md-8 offset-md-2">
+                <ClasificaTabla usuario={usuario} />
+              </div>
+            </div>    */}
           </div>
         </div>
       )}

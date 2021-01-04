@@ -1,8 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "../css/adminLibros.css";
-// import Gravatar from "./Gravatar";
-
 
 export default function AdminLibrosLista({ data }) {
 	return (
