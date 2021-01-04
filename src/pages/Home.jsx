@@ -44,7 +44,8 @@ export default function Home() {
         <Row>
           <Col>
                 {/* Barra de busqueda */}
-                <LibroBarraBusq buscarTxt={buscarTxt} handleChange={handleChange} />
+                {/* <LibroBarraBusq buscarTxt={buscarTxt} handleChange={handleChange} /> */}
+				
           </Col>
         </Row>
 
