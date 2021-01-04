@@ -8,6 +8,7 @@ import AdminDatos from '../pages/AdminDatos';
 
 // window.globalVar = "http://localhost:3005";
 window.globalVar = "https://mighty-peak-31803.herokuapp.com";
+//window.globalVar = "https://whispering-journey-97600.herokuapp.com"
 
 export default function App() {
 	return (
