@@ -79,8 +79,8 @@ export default function Footer() {
           {/* <!-- Social buttons --> */}
           <ul className="list-unstyled list-inline text-center">
             <li className="list-inline-item">
-              <Link 
-                to="https://es-la.facebook.com/"
+              <a
+                href="https://es-la.facebook.com/"
                 className="btn-floating btn-fb mx-1"
                 target="_blank"
               >
@@ -88,11 +88,11 @@ export default function Footer() {
                   className="fa-lg white-text mr-md-5 mr-3 fa-2x"
                   icon={faFacebookF}
                 />
-              </Link> 
+              </a> 
             </li>
             <li className="list-inline-item">
-              <Link
-                to="https://twitter.com/"
+              <a
+                href="https://twitter.com/"
                 className="btn-floating btn-tw mx-1"
                 target="_blank"
               >
@@ -100,11 +100,11 @@ export default function Footer() {
                   className="fa-lg white-text mr-md-5 mr-3 fa-2x"
                   icon={faTwitter}
                 />
-              </Link>
+              </a>
             </li>
             <li className="list-inline-item">
-              <Link
-                to="https://www.instagram.com/?hl=es-la"
+              <a
+                href="https://www.instagram.com/?hl=es-la"
                 className="btn-floating btn-li mx-1"
                 target="_blank"
               >
@@ -116,7 +116,7 @@ export default function Footer() {
                 <i className="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
                   {" "}
                 </i>
-              </Link>
+              </a>
             </li>
           </ul>
           <footer>
