@@ -39,7 +39,11 @@ export default function FormRegistro(props) {
 	
     try {
       //Método POST para enviar info de datos de usuario al servidor
-      const resp = await fetch("http://localhost:3005/login", {
+      
+      // const resp = await fetch("http://localhost:3005/login", {
+        
+      //const resp = await fetch("https://whispering-journey-97600.herokuapp.com/login", {
+    const resp = await fetch("https://mighty-peak-31803.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify(user.form),
         headers: {
