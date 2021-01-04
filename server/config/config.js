@@ -14,17 +14,12 @@ if (process.env.NODE_ENV === 'dev') {
 } else {
 	urlDB = process.env.MONGO_URI // en la variable de entorno creada con Heroku MONGO_URI
 }
-<<<<<<< HEAD
 
 process.env.URLDB = urlDB
-=======
-    
-process.env.URLDB=urlDB
->>>>>>> silvia
 process.env.URLDB = 'mongodb+srv://user:zip29670@cluster0.snrqe.mongodb.net/bradbury';
 
 
-// caducidad del TOEKN
+// caducidad del TOKEN
 process.env.CADUCIDAD_TOKEN = "14d"
 
 // definimos SEED
