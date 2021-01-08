@@ -1,7 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import React from "react";
-// import Navbar from "./NavBar";
-import Footer from "./Footer";
+
 
 
 export default function Layout(props) {
@@ -10,9 +9,9 @@ export default function Layout(props) {
 			<Container>
 				<Row>
 					<Col>
-						{/* <Navbar /> */}
-						{props.children}
-						<Footer />
+						{/* los props son todas las rutas que están en App.jsx */}
+						{props.children} 
+						
 					</Col>
 				</Row>
 			</Container>

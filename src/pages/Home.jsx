@@ -8,8 +8,8 @@ import Libro from '../componentes/Libro'
 import Suscr from '../componentes/Suscribirse.jsx'
 // import Footer from '../componentes/Footer'
 // import LibroApp from '../componentes/LibroApp'
-// import LibroBarraBusq from '../componentes/LibroBarraBusq'
-
+import NavbarCarrito from '../componentes/NavbarCarrito'
+import Footer from "../componentes/Footer";
 import "../css/style.css";
 // ----------------------------------------------------- //
 
@@ -36,30 +36,23 @@ export default function Home() {
 
   return (
     <>
-	<NavBar/>
-        {/* Barra de busqueda  */}
-        {/* <Row>
-          <Col>
-            <LibroBarraBusq buscarTxt={buscarTxt} handleChange={handleChange} /> 
-          </Col>
-        </Row> */}
-
-        {/* CAROUSEL */}
-        <Row>
-          <Col>
-            <CarouselHome />
-          </Col>
-        </Row>
-
-        {/* CARDS */}
-        <Row>
-          <Col>
-            {/* AQUI VAN LAS CARDS */}
-            {/* <LibroApp/> */}
-            <Libro/>
-          </Col>
-        </Row>
-        <Suscr/>
+	    <NavBar />
+      <NavbarCarrito />
+     
+      <Row>
+        <Col>
+          <CarouselHome />
+        </Col>
+      </Row>
+    
+      <Row>
+        <Col>
+          <Libro/>
+        </Col>
+      </Row>
+     
+      <Suscr/>
+      <Footer />
     </>
   );
 }
