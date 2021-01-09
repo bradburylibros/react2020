@@ -78,7 +78,7 @@ export default function LibroTablaCategoria(props) {
                         handleShow();
                       }}
                     >
-                      <i className="fa fa-trash-o" aria-hidden="true"></i>
+                      <i className="fa fa-trash-o" aria-hidden="true"> </i>
                     </button>
                   </div>
                 )}

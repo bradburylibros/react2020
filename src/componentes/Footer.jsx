@@ -2,9 +2,9 @@ import React from "react";
 import Logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF,faInstagram,faTwitter,} from "@fortawesome/free-brands-svg-icons";
-
-import "../css/style.css";
 import { Link } from "react-router-dom";
+import "../css/style.css";
+
 
 export default function Footer() {
   return (
@@ -122,7 +122,7 @@ export default function Footer() {
           <footer>
             <section id="nav" className="bg-1 p-2 mt-4">
               <nav className="nav d-flex container align-items-center justify-content-center">
-                <Link className="nav-link" to="/">
+                <Link to="/" className="nav-link">
                   Inicio
                 </Link>
                 {/* <a className="nav-link" href="index.html#librorec"> */}
@@ -130,11 +130,11 @@ export default function Footer() {
                   Catalogo
                 </Link>
                 {/* <a className="nav-link" href="index.html#libronov"> */}
-                <Link className="nav-link" to="/">
+                <Link  to="/" className="nav-link">
                   Novedades
                 </Link>
                 {/* <a className="nav-link">Contacto</a> */}
-                <Link className="nav-link" to="/">Contacto </Link>
+                <Link to="/" className="nav-link" >Contacto </Link>
               </nav>
             </section>
             {/* <!-- FIRMA --> */}

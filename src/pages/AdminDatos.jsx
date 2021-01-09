@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import NavBarTest from "../componentes/NavBarTest";
 import { getUsuario } from "../helpers/Usuario";
-
-// import "../css/tabla.css";
-// import Portada from "../images/portada.svg";
-
 import LibroTabla from "../componentes/LibroTabla2";
 import CategoriaTabla from "../componentes/LibroTablaCategoria";
-import ClasificaTabla from "../componentes/LibroTablaClasifica"
+//import ClasificacionTabla from "../componentes/LibroTablaClasificacion";
+// import "../css/tabla.css"
+// import Portada from "../images/portada.svg"
 
 export default function AdminDatos(props) {
-
   //verifico si hay un token guardado en el LocalStorage
   const token = localStorage.getItem("token") || "";
   const [logout, setLogout] = useState(false); //Estado que verifica el deslogueo
@@ -23,10 +20,8 @@ export default function AdminDatos(props) {
   });
 
   useEffect(() => {
-    //al montar componente
-	//si no hay token volvemos al login
-	
-	console.log(token);
+    //al montar componente si no hay token volvemos al login
+    console.log(token);
 
     const inicio = () => {
       if (token === "") {
@@ -72,11 +67,14 @@ export default function AdminDatos(props) {
                 <CategoriaTabla usuario={usuario} />
               </div>
             </div>
-            {/* <div className="row mb-4">
+            {/* 
+            ES IGUAL QUE CATEGORIA PERO NO FUNCIONAAAAA!!!
+            <div className="row mb-4">
               <div className="col-12 col-md-8 offset-md-2">
-                <ClasificaTabla usuario={usuario} />
+                <ClasificacionTabla usuario={usuario} />
               </div>
-            </div>    */}
+            </div> 
+            */}
           </div>
         </div>
       )}

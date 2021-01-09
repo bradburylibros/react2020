@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { getClasificacion } from "../helpers/Clasificacions";
+import React, { useState, useEffect } from "react"
+import { getClasificacion } from "../helpers/Clasificaciones"
 
-import { Table } from "react-bootstrap";
-import ModalClasifica from "./modales/ClasificaModal";
+import { Table } from "react-bootstrap"
+import ModalClasificacion from "./modales/ClasificacionModal"
 
-export default function LibroTablaClasifica(props) {
-  const [clasificacion, setClasificacion] = useState([]);
-  const [show, setShow] = useState(false);
+export default function LibroTablaClasificacion(props) {
+  
+  const [clasificaciones, setClasificaciones] = useState([])
+  const [show, setShow] = useState(false)
 
   const [modalType, setModalType] = useState({
     tipo: "",
@@ -22,19 +23,19 @@ export default function LibroTablaClasifica(props) {
 
   const actualizaClasificacion = () => {
     getClasificacion()
-      .then((response) => setClasificacion(response))
+      .then((response) => setClasificaciones (response))
       .catch((err) => console.log(err));
   };
 
   return (
     <>
-      <ModalClasifica
+      <ModalClasificacion
         show={show}
         handleClose={handleClose}
         modalType={modalType}
         actualizaClasificacion={actualizaClasificacion}
       />
-      <h2 className="text-center">Lista de Clasificaciones</h2>
+      <h2 className="text-center">Clasificación - Temática</h2>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
@@ -60,11 +61,12 @@ export default function LibroTablaClasifica(props) {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {clasificacion.map((clasifica) => (
-            <tr key={clasifica._id}>
-              <td>{clasifica.descripcion}</td>
-              {/* <td>{clasificacion.usuario.email}</td> */}
+        <tbody> 
+          {
+          clasificaciones.map((clasificacion)=>(
+            <tr key={clasificacion._id}>
+              <td>{clasificacion.descripcion}</td>
+             
               <td>
                 {props.usuario.role === "ADMIN" && (
                   <div className="col">
@@ -78,7 +80,7 @@ export default function LibroTablaClasifica(props) {
                         handleShow();
                       }}
                     >
-                      <i className="fa fa-trash-o" aria-hidden="true"></i>
+                      <i className="fa fa-trash-o" aria-hidden="true"> </i>
                     </button>
                   </div>
                 )}

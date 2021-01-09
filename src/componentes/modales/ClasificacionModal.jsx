@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap'
 import ClasificaFormAlta from '../formularios/ClasificaFormAlta'
 import ClasificaFormBaja from '../formularios/ClasificaFormBaja'
 
-export default function ClasificaModal(props) {
+export default function ClasificacionModal(props) {
   return (
     <>
       <Modal show={props.show} onHide={props.handleClose} centered>

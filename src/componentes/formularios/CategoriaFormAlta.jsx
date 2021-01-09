@@ -25,6 +25,7 @@ export default function CategoriaFormAlta(props) {
       const resp = await fetch(`${window.globalVar}/categoria`, {
     //   const resp = await fetch("http://localhost:3005/categoria", {
     //   const resp = await fetch("https://mighty-peak-31803.herokuapp.com/categoria", {
+    //   const resp = await fetch("https://whispering-journey-97600.herokuapp.com/categoria", {
         method: "POST",
         body: JSON.stringify(state),
         headers: {
