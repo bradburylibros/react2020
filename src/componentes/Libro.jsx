@@ -6,7 +6,7 @@ export default function Libro() {
 
     const [libros, setLibros] = useState ([])
     const [loading, setLoading] = useState (true)
-    
+ 
     setTimeout(() => {
         setLibros ([
             {
@@ -105,22 +105,19 @@ export default function Libro() {
                 categoria:"Novedades"
               },
         ])
-        
 
         setLoading(false)
     }, 3000);
-
+   
 
     return (
         <Container>
             <Row ClassName="justify-content-between">                  
         
-                     {loading ? <h5>Cargando...</h5>
+              {loading ? <h6>Cargando catálogo....</h6>
 					 :
-					 <>
-                     	<LibroCardDeck libros={libros} /> 
-					 </>
-                     }
+            <LibroCardDeck libros={libros} /> 
+          }
                     
            </Row>
         </Container>

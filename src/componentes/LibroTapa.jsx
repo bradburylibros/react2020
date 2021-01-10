@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function LibroTapa({ imgPortada }) {
   const url = `http://drive.google.com/uc?export=view&id=${imgPortada}`;
 
@@ -8,8 +7,6 @@ export default function LibroTapa({ imgPortada }) {
     <div>
       <img
         src={url}
-        height="350px"
-        width="10px"
         className="img-fluid rounded img-thumbnail imagenalto"
             height="130px"
             width="150px"

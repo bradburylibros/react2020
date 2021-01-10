@@ -1,5 +1,5 @@
 import React from 'react'
-import LibroFila from './LibroFila'
+import LibroFila from './_LibroFila'
 
 
 export default function LibroLista({libros}) {
