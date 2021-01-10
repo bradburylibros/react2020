@@ -7,6 +7,7 @@ export const getUsuario = async () => {
       const resp = await fetch(`${window.globalVar}/usuario/${id}`, {
     //   const resp = await fetch(`http://localhost:3005/usuario/${id}`, {
     //   const resp = await fetch(`https://mighty-peak-31803.herokuapp.com/usuario/${id}`, {
+    //   const resp = await fetch(`https://whispering-journey-97600.herokuapp.com/usuario/${id}`, {  
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

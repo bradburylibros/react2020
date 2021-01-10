@@ -4,7 +4,7 @@ import Logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Login from '../pages/Login'
-import {Nav, Dropdown} from 'react-bootstrap'
+//import {Nav, Dropdown} from 'react-bootstrap'
 
 import "../css/style.css";
 
@@ -42,9 +42,8 @@ export default function NavBar() {
                   name='texto'
                   value={buscarTxt.texto}
                   onChange={handleChange}
-                  autoComplete='off'
-                  placeholder='Bucar texto (Título, Autor, ISBN)'
                   */
+                  autoComplete='off'                  
                 />
 
                 <button
@@ -54,51 +53,62 @@ export default function NavBar() {
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </form>
-
+              {/* CATALOGO */}
               <li className="nav-item">
                 <Link className="nav-link text-white" to="/">
-                  Inicio
+                  Catálogo
                 </Link>
               </li>
-           
-
+              {/* CATEGORIAS */}
               <li class="nav-item dropdown">
-                {/* <a href="#" ---> Link to="ruta exacta /home , /registro etc"*/}
                 <Link to = "/"
                   className="nav-link text-white dropdown-toggle"
                   data-toggle="dropdown"
-                  
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Categoría
+                  Categorías
                 </Link>
                 
                 <div className="dropdown-menu">
-                  <Link to="/" className="dropdown-item" >
-                    Novedades
-                  </Link>
-                  <Link to="/" className="dropdown-item" >
-                    Recomendados
-                    </Link>
-                  <Link to="/" className="dropdown-item" >
-                    Más vendidos
-                  </Link>
+                  <Link to="/" className="dropdown-item" > Novedades  </Link>
+                  <Link to="/" className="dropdown-item" > Recomendados </Link>
+                  <Link to="/" className="dropdown-item" > Más vendidos  </Link>
                   <div className="dropdown-divider"></div>
-                  <Link to="/" className="dropdown-item" >
-                    Todos
-                  </Link>
+                  <Link to="/" className="dropdown-item" > Todos </Link>
                 </div>
               </li>
+              {/* CLASIFICACION  (TEMATICAS) */}
+              <li class="nav-item dropdown">
+                <Link to = "/"
+                  className="nav-link text-white dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Temáticas
+                </Link>
+                
+                <div className="dropdown-menu">
+                  <Link to="/" className="dropdown-item" > Autoayuda  </Link>
+                  <Link to="/" className="dropdown-item" > Novela  </Link>
+                  <Link to="/" className="dropdown-item" > Policial </Link>
+                  <Link to="/" className="dropdown-item" > Thriller  </Link>
+                  <div className="dropdown-divider"></div>
+                  <Link to="/" className="dropdown-item" > Todos </Link>
+                </div>
+              </li>
+              {/* REGISTRATE */}
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link text-white"
                   data-toggle="modal"
                   data-target="#exampleModal"
                 >
                   Regístrate
-                </a>
+                </Link>
 {/* ------------ [ MODAL REGISTRATE ] ------------ */}
                 <div
                   className="modal fade"
@@ -191,11 +201,19 @@ export default function NavBar() {
                                 <option selected>Selecciona...</option>
                                 <option>Buenos Aires</option>
                                 <option>Catamarca</option>
+                                <option>CABA</option>
                                 <option>Chubut</option>
                                 <option>Córdoba</option>
+                                <option>Entre Ríos</option>
+                                <option>Formosa</option>
                                 <option>Jujuy</option>
+                                <option>La Pampa</option>
+                                <option>La Rioja</option>
+                                <option>Mendoza</option>
                                 <option>Neuquén</option>
+                                <option>Río Negro</option>
                                 <option>Salta</option>
+                                <option>San Juan</option>
                                 <option>Santa Cruz</option>
                                 <option>Tucumán</option>
                                 <option>Tierra del Fuego</option>
@@ -211,6 +229,7 @@ export default function NavBar() {
                                 <option selected>Selecciona...</option>
                                 <option>Masculino</option>
                                 <option>Femenino</option>
+                                <option>No informado</option>
                               </select>
                             </div>
                           </div>

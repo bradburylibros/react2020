@@ -96,7 +96,7 @@ export default function FormRegistro(props) {
 		</Form.Label>
         <Form.Control
           type="email"
-          placeholder="Enter email"
+          placeholder="Ingresa el email"
           name="email"
           value={user.form.email}
           onChange={handleChange}

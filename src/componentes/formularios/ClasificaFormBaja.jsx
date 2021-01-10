@@ -8,6 +8,7 @@ export default function ClasificaFormBaja(props) {
 
   const deleteClasificacion = async () => {
     try {
+      //const resp = await fetch(`https://whispering-journey-97600.herokuapp.com/clasificacion/${id}`, {
       const resp = await fetch(`http://localhost:3005/clasificacion/${id}`, {
         method: "delete",
         headers: {

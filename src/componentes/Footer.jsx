@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF,faInstagram,faTwitter,} from "@fortawesome/free-brands-svg-icons";
-
+import Logo from "../images/logo.png";
 import "../css/style.css";
-import { Link } from "react-router-dom";
+
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
               <div class="col-md-4 mx-auto mt-4">
                 <img src={Logo} style={{ width: "50%" }} alt="Logo Bradbury" />
                 <p class="mt-3">
-                  Somos un grupo de estudiantes de la comision 3i de RollingCode
+                  Somos un grupo de estudiantes de la comisión 3i de RollingCode
                   School{" "}
                 </p>
               </div>
@@ -27,19 +27,19 @@ export default function Footer() {
                 </h5>
                 <ul class="list-unstyled">
                   <li>
-                    <a id="linksfo" href="#!">
+                    <Link to="/" id="linksfo" >
                       Atención al cliente
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a id="linksfo" href="#!">
+                    <Link to="#!"id="linksfo" >
                       Como comprar
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a id="linksfo" href="#!">
+                    <Link to="/" id="linksfo" >
                       Contacto
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -50,24 +50,27 @@ export default function Footer() {
                 </h5>
                 <ul class="list-unstyled">
                   <li>
-                    <a
+                    <Link to="/"
                       id="linksfo"
-                      href="#!"
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
                       Registrame
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a id="linksfo" href="#!">
+                  <Link to="/login" 
+                    id="linksfo" 
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                    >
                       Ingresar
-                    </a>
+                  </Link> 
                   </li>
                   <li>
-                    <a id="linksfo" href="#!">
+                    <Link to="/" id="linksfo">
                       Estado de mi compra
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -78,51 +81,43 @@ export default function Footer() {
 
           {/* <!-- Social buttons --> */}
           <ul className="list-unstyled list-inline text-center">
-            <li className="list-inline-item">
+
+            <li className="list-inline-item" action>
               <a
                 href="https://es-la.facebook.com/"
                 className="btn-floating btn-fb mx-1"
-                target="_blank"
-              >
+                target="_blank">
                 <FontAwesomeIcon
                   className="fa-lg white-text mr-md-5 mr-3 fa-2x"
-                  icon={faFacebookF}
-                />
+                  icon={faFacebookF}/>
               </a> 
+              
             </li>
             <li className="list-inline-item">
               <a
                 href="https://twitter.com/"
                 className="btn-floating btn-tw mx-1"
-                target="_blank"
-              >
+                target="_blank">
                 <FontAwesomeIcon
                   className="fa-lg white-text mr-md-5 mr-3 fa-2x"
-                  icon={faTwitter}
-                />
+                  icon={faTwitter}/>
               </a>
             </li>
             <li className="list-inline-item">
               <a
                 href="https://www.instagram.com/?hl=es-la"
                 className="btn-floating btn-li mx-1"
-                target="_blank"
-              >
+                target="_blank" >
                 <FontAwesomeIcon
                   className=" fa-lg white-text mr-md-5 mr-3 fa-2x"
-                  icon={faInstagram}
-                />
-
-                <i className="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
-                  {" "}
-                </i>
+                  icon={faInstagram} />
               </a>
             </li>
-          </ul>
+          </ul> 
           <footer>
             <section id="nav" className="bg-1 p-2 mt-4">
               <nav className="nav d-flex container align-items-center justify-content-center">
-                <Link className="nav-link" to="/">
+                <Link to="/" className="nav-link">
                   Inicio
                 </Link>
                 {/* <a className="nav-link" href="index.html#librorec"> */}
@@ -130,11 +125,11 @@ export default function Footer() {
                   Catalogo
                 </Link>
                 {/* <a className="nav-link" href="index.html#libronov"> */}
-                <Link className="nav-link" to="/">
+                <Link  to="/" className="nav-link">
                   Novedades
                 </Link>
                 {/* <a className="nav-link">Contacto</a> */}
-                <Link className="nav-link" to="/">Contacto </Link>
+                <Link to="/" className="nav-link" >Contacto </Link>
               </nav>
             </section>
             {/* <!-- FIRMA --> */}
