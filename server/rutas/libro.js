@@ -9,10 +9,11 @@ let Libro = require ('../modelos/libro')
 
 
 // ------------------ [ método GET ] ------------------ //
-app.get('/libro', verificaToken, function (req, res) { 
+// app.get('/libro', verificaToken, function (req, res) { 
+app.get('/libro', function (req, res) { 
     
     let desde = req.query.desde || 0
-    let limite = req.query.limite || 5
+    let limite = req.query.limite || 8
 
     desde = Number(desde)
     limite = Number(limite)

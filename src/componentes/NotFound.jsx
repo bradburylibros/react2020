@@ -11,8 +11,8 @@ export default function NotFound() {
             <img className="img-fluid" src={Error404}></img>
           </Link>
           <h5>
-            La pagina que busca no existe o fue removida, por favor vuelva a
-            nuestra pagina de <Link to="/">inicio</Link>.
+            La página que busca no existe o fue removida, por favor vuelva a
+            nuestra página de <Link to="/">inicio</Link>.
           </h5>
         </div>
       </div>
