@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import LibroLista from './LibroLista'
+import LibroLista from './_LibroLista'
 import LibroForm from './LibroForm'
 
 //import LibroFila from './LibroFila'

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Container, Row } from "react-bootstrap";
 // import ModalTest from "./ModalTest";
 import { getAllLibros } from "../helpers/Libros";
 import LibroCardDeck from "./LibroCardDeck";
@@ -27,14 +28,23 @@ export default function Libro() {
 	};
 
 	return (
-		<>
-			{
-				libros.loading ? (
-					<h2>Cargando...</h2>
-				) : (
-						<LibroCardDeck libros={libros.datos} />
-					)
-			}
-		</>
+		<Container>
+			<Row ClassName="justify-content-between">
+				{libros.loading ? <h6>Cargando catálogo....</h6>
+					:
+					<LibroCardDeck libros={libros.datos} />
+				}
+			</Row>
+		</Container>
+
+		// <>
+		// 	{
+		// 		libros.loading ? (
+		// 			<h2>Cargando...</h2>
+		// 		) : (
+		// 				<LibroCardDeck libros={libros.datos} />
+		// 			)
+		// 	}
+		// </>
 	);
 }

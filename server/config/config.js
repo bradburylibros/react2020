@@ -20,7 +20,7 @@ process.env.URLDB = urlDB
 
 
 // caducidad del TOKEN
-process.env.CADUCIDAD_TOKEN = "14d"
+process.env.CADUCIDAD_TOKEN = "99d"
 
 // definimos SEED
 process.env.SEED = process.env.SEED || "Semilla_local"
